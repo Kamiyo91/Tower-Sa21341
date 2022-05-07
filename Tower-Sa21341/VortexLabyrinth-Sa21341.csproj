@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E42E797-5F03-4D31-82C4-5E705C09D562}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VortexLabyrinth_Sa21341</RootNamespace>
+    <AssemblyName>VortexLabyrinth_Sa21341</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NOMP3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NOMP3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="KamiyoStaticBLL">
+      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticBLL\bin\Debug\KamiyoStaticBLL.dll</HintPath>
+    </Reference>
+    <Reference Include="KamiyoStaticHarmony">
+      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticHarmony\bin\Debug\KamiyoStaticHarmony.dll</HintPath>
+    </Reference>
+    <Reference Include="KamiyoStaticUtil">
+      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticUtil\bin\Debug\KamiyoStaticUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\MonoMod.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aztec\Cards\DiceCardSelfAbility_AztecShield_Sa21341.cs" />
+    <Compile Include="Aztec\Passives\PassiveAbility_AztecShield_Sa21341.cs" />
+    <Compile Include="BattleUnitBuf_Vip_Sa21341.cs" />
+    <Compile Include="BLL\VortexModParameters.cs" />
+    <Compile Include="BluePetal\Buffs\BattleUnitBuf_BluePetal_Sa21341.cs" />
+    <Compile Include="BluePetal\Cards\DiceCardSelfAbility_PetalLight_Sa21341.cs" />
+    <Compile Include="BluePetal\Cards\DiceCardSelfAbility_PetalDrawAndLight_Sa21341.cs" />
+    <Compile Include="BluePetal\Cards\DiceCardSelfAbility_PetalDraw_Sa21341.cs" />
+    <Compile Include="BluePetal\Dices\DiceCardEffect_BluePetal_Sa21341.cs" />
+    <Compile Include="BluePetal\Passives\PassiveAbility_BluePetalImmunity_Sa21341.cs" />
+    <Compile Include="BluePetal\Passives\PassiveAbility_GuardianOfTheTower_Sa21341.cs" />
+    <Compile Include="Maps\BlueGuardian_Sa21341MapManager.cs" />
+    <Compile Include="Miyu\Actions\BehaviourAction_MassHeal_Sa21341.cs" />
+    <Compile Include="Miyu\Actions\BehaviourAction_SupportAttack_Sa21341.cs" />
+    <Compile Include="Miyu\Buffs\BattleUnitBuf_CorruptedUniform_Sa21341.cs" />
+    <Compile Include="Miyu\Buffs\BattleUnitBuf_RedShield_Sa21341.cs" />
+    <Compile Include="Miyu\Buffs\BattleUnitBuf_YellowShield_Sa21341.cs" />
+    <Compile Include="Miyu\Buffs\BattleUnitBuf_BlueShield_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_BlueShield_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_Buff_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_Heal_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_MassHeal_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_RedShield_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_YellowShield_Sa21341.cs" />
+    <Compile Include="Miyu\DiceCardSelfAbility_MiyuCommonCard_Sa21341.cs" />
+    <Compile Include="Miyu\DiceEffects\DiceAttackEffect_RedShield_Sa21341.cs" />
+    <Compile Include="Miyu\DiceEffects\DiceAttackEffect_YellowShield_Sa21341.cs" />
+    <Compile Include="Miyu\DiceEffects\DiceAttackEffect_BlueShield_Sa21341.cs" />
+    <Compile Include="Miyu\Dices\DiceCardAbility_DiceYellowShield_Sa21341.cs" />
+    <Compile Include="Miyu\Dices\DiceCardAbility_DiceRedShield_Sa21341.cs" />
+    <Compile Include="Miyu\Dices\DiceCardAbility_DiceBlueShield_Sa21341.cs" />
+    <Compile Include="Miyu\Dices\DiceCardAbility_HealDice_Sa21341.cs" />
+    <Compile Include="Miyu\FarAreaEffects\FarAreaEffect_MassHeal_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_CorruptedStaff_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_CorruptedUniform_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_Healer_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_Miyu_Sa21341.cs" />
+    <Compile Include="PassiveAbility_LoneFixer_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_DistortionBlessing_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_GeneralAtkStance_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_AtkStance_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_GeneralDefStance_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_DefStance_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_RedAura_Sa21341.cs" />
+    <Compile Include="Sae\Buffs\BattleUnitBuf_SpecialPowerNull_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_GeneralDefStance_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_GeneralAtkStance_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_CombatReady_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_DefStance_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_AtkStance_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_RagingEdge_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_RagingBattle_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_SaeMassAttack_Sa21341.cs" />
+    <Compile Include="Sae\Cards\DiceCardSelfAbility_Struggle_Sa21341.cs" />
+    <Compile Include="Sae\Dices\DiceCardAbility_CombatReadyCounterDice_Sa21341.cs" />
+    <Compile Include="Sae\Dices\DiceCardAbility_CombatReadyDice_Sa21341.cs" />
+    <Compile Include="Sae\Dices\DiceCardAbility_Power1Under25Hp_Sa21341.cs" />
+    <Compile Include="Sae\Dices\DiceCardAbility_SaeBlock_Sa21341.cs" />
+    <Compile Include="Sae\Dices\DiceCardAbility_StruggleDefDice_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_DistortionBlessingPlayer_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_DistortionBlessing_Sa21341.cs" />
+    <Compile Include="StageManagers\EnemyTeamStageManager_BlueGuardian_Sa21341.cs" />
+    <Compile Include="StageManagers\EnemyTeamStageManager_Sae_Sa21341.cs" />
+    <Compile Include="UtilSa21341\Extension\BluePetal\NpcMechUtil_BluePetal.cs" />
+    <Compile Include="UtilSa21341\Extension\NpcMechUtilEx.cs" />
+    <Compile Include="VortexInit_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_Desc_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_GeneralDualDeckPassive_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_LoneWarrior_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_Sae_Sa21341.cs" />
+    <Compile Include="Sae\Passives\PassiveAbility_StancePassive_Sa21341.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Maps\Sae_Sa21341MapManager.cs" />
+    <Compile Include="UtilSa21341\MapUtil.cs" />
+    <Compile Include="UtilSa21341\StanceUtil.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
