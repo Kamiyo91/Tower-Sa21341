@@ -1,5 +1,5 @@
-﻿using VortexLabyrinth_Sa21341.Maps;
-using VortexLabyrinth_Sa21341.UtilSa21341.CustomMapUtility.Assemblies;
+﻿using CustomMapUtility;
+using VortexLabyrinth_Sa21341.Maps;
 
 namespace VortexLabyrinth_Sa21341.StageManagers
 {
@@ -7,7 +7,7 @@ namespace VortexLabyrinth_Sa21341.StageManagers
     {
         public override void OnWaveStart()
         {
-            CustomMapHandler.InitCustomMap("Sae_Sa21341", typeof(Sae_Sa21341MapManager), false, true,
+            CustomMapHandler.InitCustomMap<Sae_Sa21341MapManager>("Sae_Sa21341", false, true,
                 0.5f, 0.25f, 0.5f, 0.8f);
             CustomMapHandler.EnforceMap();
             Singleton<StageController>.Instance.CheckMapChange();

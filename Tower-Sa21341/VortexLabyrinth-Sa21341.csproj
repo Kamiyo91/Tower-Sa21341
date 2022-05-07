@@ -148,6 +148,7 @@
     <Compile Include="Sae\Passives\PassiveAbility_DistortionBlessing_Sa21341.cs" />
     <Compile Include="StageManagers\EnemyTeamStageManager_BlueGuardian_Sa21341.cs" />
     <Compile Include="StageManagers\EnemyTeamStageManager_Sae_Sa21341.cs" />
+    <Compile Include="UtilSa21341\CustomMapUtility\Assemblies\CustomMapUtility.cs" />
     <Compile Include="UtilSa21341\Extension\BluePetal\NpcMechUtil_BluePetal.cs" />
     <Compile Include="UtilSa21341\Extension\NpcMechUtilEx.cs" />
     <Compile Include="VortexInit_Sa21341.cs" />
@@ -161,6 +162,18 @@
     <Compile Include="UtilSa21341\MapUtil.cs" />
     <Compile Include="UtilSa21341\StanceUtil.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="UtilSa21341\CustomMapUtility\Resource\CustomAudio\README.md" />
+    <None Include="UtilSa21341\CustomMapUtility\Resource\Stage\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\Background.png" />
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\Floor.png" />
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\FloorUnder.png" />
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\Formation Position Markers.png" />
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\Scratch1.png" />
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\Scratch2.png" />
+    <Content Include="UtilSa21341\CustomMapUtility\Resource\Stage\Template\Scratch3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
