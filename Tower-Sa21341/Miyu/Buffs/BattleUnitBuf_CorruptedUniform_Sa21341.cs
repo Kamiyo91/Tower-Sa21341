@@ -6,8 +6,8 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
     public class BattleUnitBuf_CorruptedUniform_Sa21341 : BattleUnitBuf
     {
         private Random _random;
-        private int _resistNumber;
         private int _resistBreakNumber;
+        private int _resistNumber;
 
         public override void Init(BattleUnitModel owner)
         {

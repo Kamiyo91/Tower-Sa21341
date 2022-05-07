@@ -64,7 +64,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
 
         public override BattleUnitModel ChangeAttackTarget(BattleDiceCardModel card, int idx)
         {
-            if (!VortexModParameters.HealerCardsId.Contains(card.GetID())) return base.ChangeAttackTarget(card, idx);
+            if (!ModParameters.OnlyAllyTargetCardIds.Contains(card.GetID())) return base.ChangeAttackTarget(card, idx);
             var units = BattleObjectManager.instance.GetAliveList(owner.faction).Where(x => x.IsTargetable(owner))
                 .ToList();
             return units.Any() ? RandomUtil.SelectOne(units) : base.ChangeAttackTarget(card, idx);

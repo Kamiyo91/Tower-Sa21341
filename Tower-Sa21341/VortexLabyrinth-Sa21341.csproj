@@ -37,14 +37,13 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="KamiyoStaticBLL">
-      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticBLL\bin\Debug\KamiyoStaticBLL.dll</HintPath>
+    <Reference Include="KamiyoStaticBLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\KamiyoStaticDll\KamiyoStaticBLL\bin\Debug\KamiyoStaticBLL.dll</HintPath>
     </Reference>
-    <Reference Include="KamiyoStaticHarmony">
-      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticHarmony\bin\Debug\KamiyoStaticHarmony.dll</HintPath>
-    </Reference>
-    <Reference Include="KamiyoStaticUtil">
-      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticUtil\bin\Debug\KamiyoStaticUtil.dll</HintPath>
+    <Reference Include="KamiyoStaticUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\KamiyoStaticDll\KamiyoStaticUtil\bin\Debug\KamiyoStaticUtil.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\Mono.Cecil.dll</HintPath>
@@ -118,6 +117,7 @@
     <Compile Include="Miyu\Dices\DiceCardAbility_DiceBlueShield_Sa21341.cs" />
     <Compile Include="Miyu\Dices\DiceCardAbility_HealDice_Sa21341.cs" />
     <Compile Include="Miyu\FarAreaEffects\FarAreaEffect_MassHeal_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_BlueShield_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_CorruptedStaff_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_CorruptedUniform_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_DistortionSense_Sa21341.cs" />

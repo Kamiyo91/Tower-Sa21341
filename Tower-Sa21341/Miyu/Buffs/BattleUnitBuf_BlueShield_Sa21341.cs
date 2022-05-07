@@ -1,5 +1,4 @@
-﻿using Sound;
-using VortexLabyrinth_Sa21341.BLL;
+﻿using VortexLabyrinth_Sa21341.Miyu.Passives;
 
 namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 {
@@ -14,16 +13,10 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
         protected override string keywordId => "BlueShield_Sa21341";
         protected override string keywordIconId => "BlueShield_Sa21341";
 
-        public override int GetDamageReduction(BattleDiceBehavior behavior)
+        public override void Init(BattleUnitModel owner)
         {
-            if (VortexModParameters.HealerCardsId.Contains(behavior.card.card.GetID()))
-                return base.GetDamageReduction(behavior);
-            _owner.bufListDetail.RemoveBuf(this);
-            if (_owner.battleCardResultLog == null) return 9999;
-            SingletonBehavior<DiceEffectManager>.Instance.CreateBehaviourEffect("BlueShield_Sa21341", 1f,
-                _owner.view, _owner.view);
-            SoundEffectPlayer.PlaySound("Creature/Greed_MakeDiamond");
-            return 9999;
+            base.Init(owner);
+            owner.passiveDetail.AddPassive(new PassiveAbility_BlueShield_Sa21341()).Hide();
         }
 
         public override void OnRoundEnd()

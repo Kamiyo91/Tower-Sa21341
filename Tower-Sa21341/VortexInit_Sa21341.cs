@@ -246,6 +246,16 @@ namespace VortexLabyrinth_Sa21341
             {
                 new LorId(VortexModParameters.PackageId, 13)
             });
+            ModParameters.NoEgoFloorUnit.AddRange(new List<LorId>
+            {
+                new LorId(VortexModParameters.PackageId, 10000005)
+            });
+            ModParameters.OnlyAllyTargetCardIds.AddRange(new List<LorId>
+            {
+                new LorId(VortexModParameters.PackageId, 12), new LorId(VortexModParameters.PackageId, 13),
+                new LorId(VortexModParameters.PackageId, 22), new LorId(VortexModParameters.PackageId, 23),
+                new LorId(VortexModParameters.PackageId, 24)
+            });
         }
     }
 }

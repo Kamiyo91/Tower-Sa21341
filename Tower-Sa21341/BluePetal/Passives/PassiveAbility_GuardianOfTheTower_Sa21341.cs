@@ -10,8 +10,8 @@ namespace VortexLabyrinth_Sa21341.BluePetal.Passives
 {
     public class PassiveAbility_GuardianOfTheTower_Sa21341 : PassiveAbilityBase
     {
-        private NpcMechUtil_BluePetal _util;
         private bool _startAttack;
+        private NpcMechUtil_BluePetal _util;
 
         public override void OnWaveStart()
         {
@@ -45,7 +45,8 @@ namespace VortexLabyrinth_Sa21341.BluePetal.Passives
 
         public override void OnRoundEnd()
         {
-            var cards = owner.allyCardDetail.GetAllDeck().Where(x => x.GetID() == new LorId(VortexModParameters.PackageId, 27));
+            var cards = owner.allyCardDetail.GetAllDeck()
+                .Where(x => x.GetID() == new LorId(VortexModParameters.PackageId, 27));
             foreach (var card in cards) owner.allyCardDetail.ExhaustACardAnywhere(card);
             _util.ExhaustEgoAttackCards();
             _util.SetOneTurnCard(false);
@@ -76,6 +77,7 @@ namespace VortexLabyrinth_Sa21341.BluePetal.Passives
                 origin = BattleDiceCardModel.CreatePlayingCard(
                     ItemXmlDataList.instance.GetCardItem(new LorId(VortexModParameters.PackageId, 27)));
             }
+
             _util.OnSelectCardPutMassAttack(ref origin);
             return base.OnSelectCardAuto(origin, currentDiceSlotIdx);
         }
