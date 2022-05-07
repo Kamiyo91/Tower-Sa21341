@@ -1,4 +1,5 @@
 ﻿using Sound;
+using VortexLabyrinth_Sa21341.BLL;
 
 namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 {
@@ -15,6 +16,8 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 
         public override int GetDamageReduction(BattleDiceBehavior behavior)
         {
+            if (VortexModParameters.HealerCardsId.Contains(behavior.card.card.GetID()))
+                return base.GetDamageReduction(behavior);
             _owner.bufListDetail.RemoveBuf(this);
             if (_owner.battleCardResultLog == null) return 9999;
             SingletonBehavior<DiceEffectManager>.Instance.CreateBehaviourEffect("BlueShield_Sa21341", 1f,

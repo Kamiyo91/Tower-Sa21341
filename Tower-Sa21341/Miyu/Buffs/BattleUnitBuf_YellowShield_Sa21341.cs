@@ -1,4 +1,5 @@
 ﻿using Sound;
+using VortexLabyrinth_Sa21341.BLL;
 
 namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 {
@@ -20,6 +21,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 
         public override void OnTakeDamageByAttack(BattleDiceBehavior atkDice, int dmg)
         {
+            if (VortexModParameters.HealerCardsId.Contains(atkDice.card.card.GetID())) return;
             _owner.bufListDetail.RemoveBuf(this);
             _owner.cardSlotDetail.RecoverPlayPoint(1);
             _owner.allyCardDetail.DrawCards(1);

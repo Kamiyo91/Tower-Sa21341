@@ -4,6 +4,7 @@
     {
         protected override string keywordId => "BluePetal_Sa21341";
         protected override string keywordIconId => "BluePetal_Sa21341";
+        public override BufPositiveType positiveType => BufPositiveType.Negative;
 
         public override void OnRoundEnd()
         {

@@ -19,6 +19,9 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.BluePetal
             if (_model.Owner.hp > 271 && BattleObjectManager.instance.GetAliveList(_model.Owner.faction).Count > 1 ||
                 _model.Phase > 0) return;
             _model.Phase++;
+            _model.HasMechOnHp = false;
+            SetMassAttack(true);
+            SetCounter(3);
             foreach (var unit in BattleObjectManager.instance.GetAliveList(_model.Owner.faction)
                          .Where(x => x.Book.BookId == new LorId(VortexModParameters.PackageId, 2)))
                 unit.Die();
@@ -45,6 +48,8 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.BluePetal
             if (_model.Phase < 1) return;
             UnitUtil.ChangeCardCostByValue(_model.Owner, -2, 99);
             _model.HasMechOnHp = false;
+            SetMassAttack(true);
+            SetCounter(3);
         }
 
         public int GetPhase()

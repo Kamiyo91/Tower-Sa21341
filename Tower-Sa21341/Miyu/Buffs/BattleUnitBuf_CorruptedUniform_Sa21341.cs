@@ -7,17 +7,20 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
     {
         private Random _random;
         private int _resistNumber;
+        private int _resistBreakNumber;
 
         public override void Init(BattleUnitModel owner)
         {
             base.Init(owner);
             _random = new Random();
             _resistNumber = _random.Next(1, 3);
+            _resistBreakNumber = _random.Next(1, 3);
         }
 
         public override void OnRoundEnd()
         {
             _resistNumber = _random.Next(1, 3);
+            _resistBreakNumber = _random.Next(1, 3);
         }
 
         public override AtkResist GetResistHP(AtkResist origin, BehaviourDetail detail)
@@ -39,7 +42,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
         public override AtkResist GetResistBP(AtkResist origin, BehaviourDetail detail)
         {
             if (detail == BehaviourDetail.None) return base.GetResistHP(origin, detail);
-            switch (_resistNumber)
+            switch (_resistBreakNumber)
             {
                 case 1:
                     return detail == BehaviourDetail.Slash ? AtkResist.Endure : base.GetResistHP(origin, detail);

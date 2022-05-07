@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using KamiyoStaticBLL.Models;
+using LOR_DiceSystem;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Maps;
 using VortexLabyrinth_Sa21341.UtilSa21341;
@@ -19,6 +20,32 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
                 owner.UnitData.unitData.InitBattleDialogByDefaultBook(
                     new LorId(VortexModParameters.PackageId, 10000004));
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 15));
+        }
+
+        public override int GetDamageReduction(BattleDiceBehavior behavior)
+        {
+            switch (behavior.card.card.XmlData.Spec.Ranged)
+            {
+                case CardRange.FarArea:
+                    return 10;
+                case CardRange.FarAreaEach:
+                    return 5;
+                default:
+                    return base.GetDamageReduction(behavior);
+            }
+        }
+
+        public override int GetBreakDamageReduction(BattleDiceBehavior behavior)
+        {
+            switch (behavior.card.card.XmlData.Spec.Ranged)
+            {
+                case CardRange.FarArea:
+                    return 10;
+                case CardRange.FarAreaEach:
+                    return 5;
+                default:
+                    return base.GetBreakDamageReduction(behavior);
+            }
         }
 
         public override void OnRoundStart()

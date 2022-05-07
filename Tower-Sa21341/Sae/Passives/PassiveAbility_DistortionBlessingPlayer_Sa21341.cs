@@ -13,5 +13,11 @@ namespace VortexLabyrinth_Sa21341.Sae.Passives
         {
             owner.bufListDetail.AddBuf(new BattleUnitBuf_DistortionBlessing_Sa21341());
         }
+
+        public override void OnRoundEndTheLast()
+        {
+            if (!owner.bufListDetail.HasBuf<BattleUnitBuf_DistortionBlessing_Sa21341>())
+                owner.bufListDetail.AddBuf(new BattleUnitBuf_DistortionBlessing_Sa21341());
+        }
     }
 }
