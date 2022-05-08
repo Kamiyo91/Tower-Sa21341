@@ -8,7 +8,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Dices
         {
             target.breakDetail.RecoverBreak(behavior.DiceResultValue);
             target.RecoverHP(behavior.DiceResultValue);
-            target.bufListDetail.AddBuf(new BattleUnitBuf_YellowShield_Sa21341());
+            if (!target.bufListDetail.HasBuf<BattleUnitBuf_YellowShield_Sa21341>()) target.bufListDetail.AddBuf(new BattleUnitBuf_YellowShield_Sa21341());
         }
     }
 }
