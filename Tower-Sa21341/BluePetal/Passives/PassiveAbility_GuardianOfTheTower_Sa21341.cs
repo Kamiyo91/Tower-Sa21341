@@ -40,7 +40,7 @@ namespace VortexLabyrinth_Sa21341.BluePetal.Passives
 
         public override int SpeedDiceNumAdder()
         {
-            return _util.GetPhase() <= 0 ? 2 : 3;
+            return _util.GetPhase() <= 0 ? 2 : 4;
         }
 
         public override void OnRoundEnd()
