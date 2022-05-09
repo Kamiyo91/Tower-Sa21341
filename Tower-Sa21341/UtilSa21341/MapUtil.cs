@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using CustomMapUtility;
 using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.Utils;
+using VortexLabyrinth_Sa21341.UtilSa21341.CustomMapUtility.Assemblies;
 
 namespace VortexLabyrinth_Sa21341.UtilSa21341
 {

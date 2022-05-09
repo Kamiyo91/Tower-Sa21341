@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using KamiyoStaticBLL.Models;
+using KamiyoStaticUtil.Utils;
 using LOR_DiceSystem;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Maps;
@@ -20,6 +21,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
                 owner.UnitData.unitData.InitBattleDialogByDefaultBook(
                     new LorId(VortexModParameters.PackageId, 10000004));
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 15));
+            UnitUtil.CheckSkinProjection(owner);
         }
 
         public override int GetDamageReduction(BattleDiceBehavior behavior)

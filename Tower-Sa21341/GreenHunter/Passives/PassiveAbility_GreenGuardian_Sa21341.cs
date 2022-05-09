@@ -1,54 +1,56 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using KamiyoStaticBLL.MechUtilBaseModels;
 using KamiyoStaticUtil.Utils;
 using VortexLabyrinth_Sa21341.BLL;
+using VortexLabyrinth_Sa21341.GreenHunter.Buffs;
 using VortexLabyrinth_Sa21341.Maps;
 using VortexLabyrinth_Sa21341.UtilSa21341.Extension;
 
-namespace VortexLabyrinth_Sa21341.BluePetal.Passives
+namespace VortexLabyrinth_Sa21341.GreenHunter.Passives
 {
-    public class PassiveAbility_GuardianOfTheTower_Sa21341 : PassiveAbilityBase
+    public class PassiveAbility_GreenGuardian_Sa21341 : PassiveAbilityBase
     {
-        private bool _startAttack;
+        private BattleUnitBuf_GreenLeaf_Sa21341 _buff;
+        private bool _singleUse;
         private NpcMechUtil_Ex2 _util;
+
+        public override void OnSucceedAttack(BattleDiceBehavior behavior)
+        {
+            if (_buff.stack < 10) _buff.stack++;
+            behavior.card.target.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Decay, 1, owner);
+        }
 
         public override void OnWaveStart()
         {
-            _startAttack = true;
-            owner.view.ChangeHeight(501);
+            _singleUse = false;
+            _buff = new BattleUnitBuf_GreenLeaf_Sa21341();
+            owner.bufListDetail.AddBuf(_buff);
             _util = new NpcMechUtil_Ex2(new NpcMechUtilBaseModel
             {
                 Owner = owner,
-                MechHp = 271,
+                MechHp = 311,
                 HasMechOnHp = true,
-                HasEgoAttack = true,
-                Counter = 0,
-                MaxCounter = 3,
-                EgoMapName = "BlueGuardian_Sa21341",
+                EgoMapName = "GreenGuardian_Sa21341",
                 EgoMapType = typeof(BlueGuardian_Sa21341MapManager),
                 BgY = 0.25f,
                 FlY = 0.8f,
                 OriginalMapStageIds = new List<LorId>
                 {
-                    new LorId(VortexModParameters.PackageId, 3), new LorId(VortexModParameters.PackageId, 4)
+                    new LorId(VortexModParameters.PackageId, 5), new LorId(VortexModParameters.PackageId, 6)
                 },
                 LorIdEgoMassAttack = new LorId(VortexModParameters.PackageId, 25),
                 EgoAttackCardId = new LorId(VortexModParameters.PackageId, 25)
-            }, "PhaseBlueGuardianSa21341");
+            }, "GreenGuardianPhase_Sa21341");
             _util.Restart();
         }
 
         public override int SpeedDiceNumAdder()
         {
-            return _util.GetPhase() <= 0 ? 2 : 4;
+            return _util.GetPhase() <= 0 ? 3 : 6;
         }
 
         public override void OnRoundEnd()
         {
-            var cards = owner.allyCardDetail.GetAllDeck()
-                .Where(x => x.GetID() == new LorId(VortexModParameters.PackageId, 27));
-            foreach (var card in cards) owner.allyCardDetail.ExhaustACardAnywhere(card);
             _util.ExhaustEgoAttackCards();
             _util.SetOneTurnCard(false);
             _util.RaiseCounter();
@@ -72,14 +74,10 @@ namespace VortexLabyrinth_Sa21341.BluePetal.Passives
 
         public override BattleDiceCardModel OnSelectCardAuto(BattleDiceCardModel origin, int currentDiceSlotIdx)
         {
-            if (_startAttack)
-            {
-                _startAttack = false;
-                origin = BattleDiceCardModel.CreatePlayingCard(
-                    ItemXmlDataList.instance.GetCardItem(new LorId(VortexModParameters.PackageId, 27)));
-            }
-
-            _util.OnSelectCardPutMassAttack(ref origin);
+            if (_singleUse || _buff.stack <= 9) return base.OnSelectCardAuto(origin, currentDiceSlotIdx);
+            _singleUse = true;
+            origin = BattleDiceCardModel.CreatePlayingCard(
+                ItemXmlDataList.instance.GetCardItem(new LorId(VortexModParameters.PackageId, 27)));
             return base.OnSelectCardAuto(origin, currentDiceSlotIdx);
         }
 
@@ -92,19 +90,17 @@ namespace VortexLabyrinth_Sa21341.BluePetal.Passives
 
         public override void OnRoundEndTheLast()
         {
-            _util.CheckPhaseSingle();
-        }
-
-        public override void OnDie()
-        {
-            foreach (var unit in BattleObjectManager.instance.GetAliveList()
-                         .Where(x => x.Book.BookId == new LorId(VortexModParameters.PackageId, 1)))
-                unit.Die();
+            _util.CheckPhase();
         }
 
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
-            _util.OnUseCardResetCount(curCard);
+            if (curCard.card.GetID() == new LorId(VortexModParameters.PackageId, 1))
+            {
+                _buff.stack = 0;
+                owner.allyCardDetail.ExhaustACardAnywhere(curCard.card);
+            }
+
             _util.ChangeToEgoMap(curCard.card.GetID());
         }
 

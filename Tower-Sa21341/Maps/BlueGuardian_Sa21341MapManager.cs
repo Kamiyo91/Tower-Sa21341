@@ -1,5 +1,5 @@
-﻿using CustomMapUtility;
-using UnityEngine;
+﻿using UnityEngine;
+using VortexLabyrinth_Sa21341.UtilSa21341.CustomMapUtility.Assemblies;
 
 namespace VortexLabyrinth_Sa21341.Maps
 {
