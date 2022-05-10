@@ -62,7 +62,8 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341
             }
 
             if (addBuf != KeywordBuf.None && removeBuf != KeywordBuf.None &&
-                owner.bufListDetail.GetActivatedBufList().Exists(x => x.bufType == removeBuf) && UnitUtil.SupportCharCheck(owner) == 1)
+                owner.bufListDetail.GetActivatedBufList().Exists(x => x.bufType == removeBuf) &&
+                UnitUtil.SupportCharCheck(owner) == 1)
             {
                 DecreaseStacksBufType(owner, removeBuf, 3);
                 owner.bufListDetail.AddKeywordBufThisRoundByEtc(addBuf, 3, owner);

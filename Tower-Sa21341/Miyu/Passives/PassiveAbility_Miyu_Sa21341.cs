@@ -16,10 +16,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
         public override void OnWaveStart()
         {
             _used = false;
-            if (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id ==
-                new LorId(VortexModParameters.PackageId, 3))
-                owner.UnitData.unitData.InitBattleDialogByDefaultBook(
-                    new LorId(VortexModParameters.PackageId, 10000004));
+            InitDialog();
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 15));
             UnitUtil.CheckSkinProjection(owner);
         }
@@ -94,6 +91,23 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
             MapUtil.ReturnFromEgoMap("BlueGuardian_Sa21341",
                 new List<LorId>
                     { new LorId(VortexModParameters.PackageId, 3), new LorId(VortexModParameters.PackageId, 4) });
+        }
+
+        private void InitDialog()
+        {
+            if (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id.packageId !=
+                VortexModParameters.PackageId) return;
+            switch (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id.id)
+            {
+                case 3:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000004));
+                    break;
+                case 5:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000010));
+                    break;
+            }
         }
     }
 }

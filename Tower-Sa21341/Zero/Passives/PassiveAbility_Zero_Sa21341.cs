@@ -18,6 +18,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
 
         public override void OnWaveStart()
         {
+            InitDialog();
             _buff = new BattleUnitBuf_BlueFlame_Sa21341();
             owner.bufListDetail.AddBuf(_buff);
             _util = new MechUtil_Zero(new MechUtilBaseModel
@@ -89,6 +90,19 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
             if (owner.faction != Faction.Enemy) return;
             if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(VortexModParameters.PackageId, 17),
                     typeof(BattleUnitBuf_BlueFlameEgo_Sa21341))) _util.ForcedEgo();
+        }
+
+        private void InitDialog()
+        {
+            if (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id.packageId !=
+                VortexModParameters.PackageId) return;
+            switch (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id.id)
+            {
+                case 5:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000007));
+                    break;
+            }
         }
     }
 }
