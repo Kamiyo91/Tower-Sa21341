@@ -18,7 +18,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
 
         public override void OnStartBattle()
         {
-            if (_buff.stack > 9) UnitUtil.ReadyCounterCard(owner, 1, VortexModParameters.PackageId);
+            if (_buff.stack > 9) UnitUtil.ReadyCounterCard(owner, 43, VortexModParameters.PackageId);
         }
     }
 }

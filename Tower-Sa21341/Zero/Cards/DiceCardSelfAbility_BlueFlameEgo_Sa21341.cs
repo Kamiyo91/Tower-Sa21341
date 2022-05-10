@@ -16,7 +16,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
             var buff = owner.bufListDetail.GetActivatedBufList()
                 .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
             if (buff == null) return;
-            buff.stack -= 20;
+            buff.stack -= 10;
         }
     }
 }
