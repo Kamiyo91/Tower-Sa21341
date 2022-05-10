@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using KamiyoStaticUtil.Utils;
 using Sound;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Sae.Buffs;
@@ -61,14 +62,14 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341
             }
 
             if (addBuf != KeywordBuf.None && removeBuf != KeywordBuf.None &&
-                owner.bufListDetail.GetActivatedBufList().Exists(x => x.bufType == removeBuf))
+                owner.bufListDetail.GetActivatedBufList().Exists(x => x.bufType == removeBuf) && UnitUtil.SupportCharCheck(owner) == 1)
             {
                 DecreaseStacksBufType(owner, removeBuf, 3);
                 owner.bufListDetail.AddKeywordBufThisRoundByEtc(addBuf, 3, owner);
             }
 
             if (owner.faction != Faction.Player ||
-                owner.Book.BookId == new LorId(VortexModParameters.PackageId, 10000901)) return;
+                VortexModParameters.SaeKeypageIds.Contains(owner.Book.BookId)) return;
             owner.view.speedDiceSetterUI.DeselectAll();
             var count = owner.allyCardDetail.GetHand().Count;
             var deckForBattle = owner.UnitData.unitData.GetDeckForBattle(deckIndex);

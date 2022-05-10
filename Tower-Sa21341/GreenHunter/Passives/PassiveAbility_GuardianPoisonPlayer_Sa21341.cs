@@ -3,7 +3,7 @@ using VortexLabyrinth_Sa21341.GreenHunter.Buffs;
 
 namespace VortexLabyrinth_Sa21341.GreenHunter.Passives
 {
-    public class PassiveAbility_GuardianPoison_Sa21341 : PassiveAbilityBase
+    public class PassiveAbility_GuardianPoisonPlayer_Sa21341 : PassiveAbilityBase
     {
         public override void OnSucceedAttack(BattleDiceBehavior behavior)
         {
@@ -13,13 +13,6 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Passives
             if (poison == null) target.bufListDetail.AddBuf(new BattleUnitBuf_Poison_Sa21341());
             else
                 poison.stack++;
-            var targetBuffs = target.bufListDetail.GetActivatedBufList()
-                .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
-            if (!targetBuffs.Any()) return;
-            var targetBuff = RandomUtil.SelectOne(targetBuffs);
-            if (targetBuff.stack < 2) target.bufListDetail.RemoveBuf(targetBuff);
-            else
-                targetBuff.stack--;
         }
     }
 }

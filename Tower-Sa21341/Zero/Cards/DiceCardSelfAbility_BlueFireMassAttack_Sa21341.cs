@@ -1,30 +1,24 @@
 ﻿using System.Linq;
-using VortexLabyrinth_Sa21341.GreenHunter.Buffs;
+using VortexLabyrinth_Sa21341.Zero.Buffs;
 
-namespace VortexLabyrinth_Sa21341.GreenHunter.Cards
+namespace VortexLabyrinth_Sa21341.Zero.Cards
 {
-    public class DiceCardSelfAbility_GreenGuardianMassAttack_Sa21341 : DiceCardSelfAbilityBase
+    public class DiceCardSelfAbility_BlueFireMassAttack_Sa21341 : DiceCardSelfAbilityBase
     {
         private bool _motionChanged;
 
-        public override bool OnChooseCard(BattleUnitModel owner)
-        {
-            return owner.bufListDetail.GetActivatedBufList().FirstOrDefault(x => x is BattleUnitBuf_GreenLeaf_Sa21341)?
-                .stack > 9;
-        }
-
         public override void OnUseCard()
         {
-            if (owner.hp < owner.MaxHp * 0.50f)
-                card.ApplyDiceStatBonus(DiceMatch.AllDice, new DiceStatBonus
-                {
-                    power = 1
-                });
-            if (owner.hp < owner.MaxHp * 0.25f)
-                card.ApplyDiceStatBonus(DiceMatch.AllDice, new DiceStatBonus
-                {
-                    power = 2
-                });
+            var buff = owner.bufListDetail.GetActivatedBufList()
+                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
+            if (buff == null || buff.stack <= 19) return;
+            var dice = card.card.CreateDiceCardBehaviorList().FirstOrDefault();
+            card.AddDice(dice);
+            card.ApplyDiceStatBonus(DiceMatch.AllDice, new DiceStatBonus
+            {
+                power = 8
+            });
+            buff.stack = 0;
         }
 
         public override void OnEndAreaAttack()

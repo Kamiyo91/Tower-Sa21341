@@ -23,11 +23,23 @@ namespace VortexLabyrinth_Sa21341.Zero.Buffs
         public override void OnSuccessAttack(BattleDiceBehavior behavior)
         {
             if (_random.Next(0, 100) >= 25 + stack) return;
-            var targetBuff = RandomUtil.SelectOne(behavior.card.target.bufListDetail.GetActivatedBufList()
-                .Where(x => x.positiveType == BufPositiveType.Positive).ToList());
+            var targetBuffs = behavior.card.target.bufListDetail.GetActivatedBufList()
+                .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
+            if (!targetBuffs.Any()) return;
+            var targetBuff = RandomUtil.SelectOne(targetBuffs);
             if (targetBuff.stack < 2) behavior.card.target.bufListDetail.RemoveBuf(targetBuff);
             else
                 targetBuff.stack--;
+        }
+
+        public override void OnAddBuf(int addedStack)
+        {
+            if (stack + addedStack > 25) stack = 25;
+        }
+
+        public override void BeforeRollDice(BattleDiceBehavior behavior)
+        {
+            if (stack > 24) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
         }
     }
 }

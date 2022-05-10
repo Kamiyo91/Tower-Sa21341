@@ -28,8 +28,10 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
                 SetHp = 10,
                 HasEgo = true,
                 EgoType = typeof(BattleUnitBuf_BlueFlameEgo_Sa21341),
-                EgoCardId = new LorId(VortexModParameters.PackageId, 28),
+                EgoCardId = new LorId(VortexModParameters.PackageId, 33),
                 HasEgoAbDialog = true,
+                HasEgoAttack = true,
+                EgoAttackCardId = new LorId(VortexModParameters.PackageId, 41),
                 EgoAbColorColor = AbColorType.Positive,
                 EgoAbDialogList = new List<AbnormalityCardDialog>
                 {
@@ -43,7 +45,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
             }, _buff);
             UnitUtil.CheckSkinProjection(owner);
             if (owner.faction != Faction.Enemy) return;
-            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(VortexModParameters.PackageId, 20),
+            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(VortexModParameters.PackageId, 17),
                     typeof(BattleUnitBuf_BlueFlameEgo_Sa21341))) _util.ForcedEgo();
         }
 
@@ -71,6 +73,12 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
             _util.EgoActive();
         }
 
+        public override void OnRoundStartAfter()
+        {
+            owner.personalEgoDetail.RemoveCard(new LorId(VortexModParameters.PackageId, 34));
+            owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 34));
+        }
+
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
             _util.OnUseExpireCard(curCard.card.GetID());
@@ -79,7 +87,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
         public override void OnRoundEnd()
         {
             if (owner.faction != Faction.Enemy) return;
-            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(VortexModParameters.PackageId, 20),
+            if (UnitUtil.SpecialCaseEgo(owner.faction, new LorId(VortexModParameters.PackageId, 17),
                     typeof(BattleUnitBuf_BlueFlameEgo_Sa21341))) _util.ForcedEgo();
         }
     }

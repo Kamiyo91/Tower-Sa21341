@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.Utils;
+using UnityEngine;
 using VortexLabyrinth_Sa21341.UtilSa21341.CustomMapUtility.Assemblies;
 
 namespace VortexLabyrinth_Sa21341.UtilSa21341
@@ -32,6 +33,14 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341
                 StageType.Creature) return;
             CustomMapHandler.RemoveCustomEgoMapByAssimilation(mapName);
             MapStaticUtil.RemoveValueInAddedMap(mapName);
+        }
+
+        public static void LoadHoodEffect(ref FarAreaEffect atkEffect)
+        {
+            var effect = Util.LoadPrefab("Battle/DiceAttackEffects/CreatureBattle/RedHood_NansaFilter");
+            if (effect == null) return;
+            atkEffect = effect.GetComponent<FarAreaEffect>();
+            Object.Destroy(effect);
         }
     }
 }

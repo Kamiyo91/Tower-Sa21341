@@ -8,7 +8,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return owner.bufListDetail.GetActivatedBufList()
-                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341)?.stack > 19;
+                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341)?.stack > 9;
         }
 
         public override void OnUseCard()

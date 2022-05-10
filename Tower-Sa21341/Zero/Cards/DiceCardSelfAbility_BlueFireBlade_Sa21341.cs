@@ -7,6 +7,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
     {
         public override void OnUseCard()
         {
+            owner.allyCardDetail.DrawCards(1);
             owner.bufListDetail.AddKeywordBufByCard(KeywordBuf.Strength, 1, null);
             owner.bufListDetail.AddKeywordBufByCard(KeywordBuf.Endurance, 1, null);
             var buff = owner.bufListDetail.GetActivatedBufList()
