@@ -6,7 +6,24 @@ namespace VortexLabyrinth_Sa21341.Sae.Passives
     {
         public override void OnWaveStart()
         {
-            owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId, 10000901));
+            InitDialog();
+        }
+
+        private void InitDialog()
+        {
+            if (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id.packageId !=
+                VortexModParameters.PackageId) return;
+            switch (Singleton<StageController>.Instance.GetStageModel().ClassInfo.id.id)
+            {
+                case 1:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000901));
+                    break;
+                case 5:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000010));
+                    break;
+            }
         }
     }
 }

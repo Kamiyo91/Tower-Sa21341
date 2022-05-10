@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using KamiyoStaticUtil.Utils;
+using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Zero.Buffs;
 
 namespace VortexLabyrinth_Sa21341.Zero.Cards
@@ -9,7 +10,9 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return owner.bufListDetail.GetActivatedBufList()
-                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341)?.stack > 2;
+                       .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341)?.stack > 2 &&
+                   !owner.cardSlotDetail.cardAry.Exists(x =>
+                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 33));
         }
 
         public override void OnUseInstance(BattleUnitModel unit, BattleDiceCardModel self, BattleUnitModel targetUnit)
