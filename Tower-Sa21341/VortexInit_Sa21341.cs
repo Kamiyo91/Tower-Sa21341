@@ -91,7 +91,8 @@ namespace VortexLabyrinth_Sa21341
             ModParameters.EgoPersonalCardList.AddRange(new List<LorId>
             {
                 new LorId(VortexModParameters.PackageId, 9), new LorId(VortexModParameters.PackageId, 15),
-                new LorId(VortexModParameters.PackageId, 41), new LorId(VortexModParameters.PackageId, 42)
+                new LorId(VortexModParameters.PackageId, 41), new LorId(VortexModParameters.PackageId, 42),
+                new LorId(VortexModParameters.PackageId, 44)
             });
             ModParameters.PreBattleUnits.AddRange(
                 new List<Tuple<LorId, List<PreBattleUnitModel>, List<SephirahType>, PreBattleUnitSpecialCases>>
