@@ -6,6 +6,7 @@ using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.Utils;
 using LOR_XML;
 using VortexLabyrinth_Sa21341.BLL;
+using VortexLabyrinth_Sa21341.Maps;
 using VortexLabyrinth_Sa21341.UtilSa21341.Extension.Zero;
 using VortexLabyrinth_Sa21341.Zero.Buffs;
 
@@ -42,7 +43,15 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
                         dialog = ModParameters.EffectTexts.FirstOrDefault(x => x.Key.Equals("ZeroEgoActive1_Sa21341"))
                             .Value.Desc
                     }
-                }
+                },
+                EgoMapName = "GreenHunter_Sa21341",
+                EgoMapType = typeof(GreenGuardian_Sa21341MapManager),
+                BgY = 0.25f,
+                FlY = 0.8f,
+                OriginalMapStageIds = new List<LorId>
+                {
+                    new LorId(VortexModParameters.PackageId, 5), new LorId(VortexModParameters.PackageId, 6)
+                },
             }, _buff);
             UnitUtil.CheckSkinProjection(owner);
             if (owner.faction != Faction.Enemy) return;
@@ -83,6 +92,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
             _util.OnUseExpireCard(curCard.card.GetID());
+            _util.ChangeToEgoMap(curCard.card.GetID());
         }
 
         public override void OnRoundEnd()
@@ -103,6 +113,10 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
                         10000007));
                     break;
             }
+        }
+        public override void OnRoundEndTheLast_ignoreDead()
+        {
+            _util.ReturnFromEgoMap();
         }
     }
 }

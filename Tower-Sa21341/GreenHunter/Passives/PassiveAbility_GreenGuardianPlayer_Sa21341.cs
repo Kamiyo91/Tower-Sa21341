@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using KamiyoStaticBLL.MechUtilBaseModels;
+using KamiyoStaticUtil.Utils;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.GreenHunter.Buffs;
 using VortexLabyrinth_Sa21341.Maps;
@@ -32,8 +33,10 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Passives
                 OriginalMapStageIds = new List<LorId>
                 {
                     new LorId(VortexModParameters.PackageId, 5), new LorId(VortexModParameters.PackageId, 6)
-                }
+                },
+                EgoAttackCardId = new LorId(VortexModParameters.PackageId, 42)
             });
+            UnitUtil.CheckSkinProjection(owner);
         }
 
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)

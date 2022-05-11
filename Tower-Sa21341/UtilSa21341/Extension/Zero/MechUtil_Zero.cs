@@ -7,7 +7,7 @@ using VortexLabyrinth_Sa21341.Zero.Buffs;
 
 namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.Zero
 {
-    public class MechUtil_Zero : MechUtilBase
+    public class MechUtil_Zero : MechUtilEx
     {
         private readonly BattleUnitBuf_BlueFlame_Sa21341 _buff;
         private readonly MechUtilBaseModel _model;
