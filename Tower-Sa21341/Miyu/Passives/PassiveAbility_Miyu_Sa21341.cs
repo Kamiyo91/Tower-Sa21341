@@ -56,6 +56,11 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
 
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
+            if (curCard.card.GetID() == new LorId(VortexModParameters.PackageId, 44))
+            {
+                _used = true;
+                ChangeToMiyuEgoMap();
+            }
             if (curCard.card.GetID() != new LorId(VortexModParameters.PackageId, 15)) return;
             owner.personalEgoDetail.RemoveCard(curCard.card.GetID());
             _used = true;

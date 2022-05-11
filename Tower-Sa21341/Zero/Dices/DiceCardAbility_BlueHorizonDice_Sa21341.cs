@@ -4,7 +4,7 @@
     {
         public override void OnSucceedAttack()
         {
-            owner.RecoverHP(2);
+            owner.RecoverHP(4);
         }
     }
 }
