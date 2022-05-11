@@ -16,7 +16,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
             card.AddDice(dice);
             card.ApplyDiceStatBonus(DiceMatch.AllDice, new DiceStatBonus
             {
-                power = 8
+                power = 4
             });
             buff.stack = 0;
         }

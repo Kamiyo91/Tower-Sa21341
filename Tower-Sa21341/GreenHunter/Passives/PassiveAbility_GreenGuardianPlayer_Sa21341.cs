@@ -20,6 +20,8 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Passives
 
         public override void OnWaveStart()
         {
+            var passive = owner.passiveDetail.AddPassive(new PassiveAbility_251201());
+            passive.Hide();
             _buff = new BattleUnitBuf_GreenLeaf_Sa21341();
             owner.bufListDetail.AddBuf(_buff);
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 42));
