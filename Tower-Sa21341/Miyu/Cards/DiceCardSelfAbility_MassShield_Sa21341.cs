@@ -3,7 +3,7 @@ using VortexLabyrinth_Sa21341.Miyu.Buffs;
 
 namespace VortexLabyrinth_Sa21341.Miyu.Cards
 {
-    public class DiceCardSelfAbility_MassHeal_Sa21341 : DiceCardSelfAbilityBase
+    public class DiceCardSelfAbility_MassShield_Sa21341 : DiceCardSelfAbilityBase
     {
         private bool _motionChanged;
 
@@ -20,14 +20,13 @@ namespace VortexLabyrinth_Sa21341.Miyu.Cards
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return !owner.cardSlotDetail.cardAry.Exists(x =>
-                x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 44));
+                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 15));
         }
+
         public override void OnEndAreaAttack()
         {
             foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction))
             {
-                unit.RecoverHP(unit.MaxHp);
-                unit.breakDetail.ResetGauge();
                 unit.bufListDetail.GetActivatedBufList().RemoveAll(x => x.positiveType == BufPositiveType.Negative);
                 if (!unit.bufListDetail.HasBuf<BattleUnitBuf_BlueShield_Sa21341>())
                     unit.bufListDetail.AddBuf(new BattleUnitBuf_BlueShield_Sa21341());

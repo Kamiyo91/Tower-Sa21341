@@ -18,6 +18,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
             _used = false;
             InitDialog();
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 15));
+            owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 44));
             UnitUtil.CheckSkinProjection(owner);
         }
 

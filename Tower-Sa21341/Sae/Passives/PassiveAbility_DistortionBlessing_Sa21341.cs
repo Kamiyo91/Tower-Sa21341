@@ -11,7 +11,6 @@ namespace VortexLabyrinth_Sa21341.Sae.Passives
 
         public override void OnWaveStart()
         {
-            owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId, 10000003));
             owner.bufListDetail.AddBuf(new BattleUnitBuf_DistortionBlessing_Sa21341());
             _miyuUnit = BattleObjectManager.instance.GetAliveList(owner.faction)
                 .FirstOrDefault(x => x.passiveDetail.HasPassive<PassiveAbility_Miyu_Sa21341>());

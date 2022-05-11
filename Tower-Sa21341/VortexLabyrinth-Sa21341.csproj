@@ -116,6 +116,7 @@
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_BlueShield_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_Buff_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_Heal_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_MassShield_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_MassHeal_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_RedShield_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_YellowShield_Sa21341.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Miyu\FarAreaEffects\FarAreaEffect_MassHeal_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_CorruptedStaff_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_CorruptedUniform_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_DistortionRecover_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_DistortionSense_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_Healer_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_Miyu_Sa21341.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Zero\Dices\DiceCardAbility_BlueHorizonDice_Sa21341.cs" />
     <Compile Include="Zero\Effects\FarAreaEffect_TheBlueFlame_Sa21341.cs" />
     <Compile Include="Zero\Passives\PassiveAbility_BlueFlame_Sa21341.cs" />
+    <Compile Include="Zero\Passives\PassiveAbility_LostInLabyrinth_Sa21341.cs" />
     <Compile Include="Zero\Passives\PassiveAbility_Zero_Sa21341.cs" />
   </ItemGroup>
   <ItemGroup>

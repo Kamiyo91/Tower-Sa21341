@@ -20,8 +20,8 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.Zero
 
         public override void SurviveCheck(int dmg)
         {
-            _model.SetHp += _buff.stack * 3;
             if (_model.Owner.hp - dmg > _model.Hp || !_model.Survive) return;
+            _model.SetHp = 10 + _buff.stack * 3;
             _model.Survive = false;
             UnitUtil.UnitReviveAndRecovery(_model.Owner, 0, _model.RecoverLightOnSurvive);
             if (_model.HasSurviveAbDialog)
