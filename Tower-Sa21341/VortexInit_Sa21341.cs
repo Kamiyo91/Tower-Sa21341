@@ -47,7 +47,7 @@ namespace VortexLabyrinth_Sa21341
             ModParameters.BooksIds.AddRange(new List<LorId>
             {
                 new LorId(VortexModParameters.PackageId, 10000001), new LorId(VortexModParameters.PackageId, 10000005),
-                new LorId(VortexModParameters.PackageId, 10000008), new LorId(VortexModParameters.PackageId, 10000009)
+                new LorId(VortexModParameters.PackageId, 10000008)
             });
             ModParameters.SameInnerIdPassives.AddRange(new Dictionary<int, List<LorId>>
             {
