@@ -10,10 +10,9 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
             owner.allyCardDetail.DrawCards(1);
             owner.bufListDetail.AddKeywordBufByCard(KeywordBuf.Strength, 1, null);
             owner.bufListDetail.AddKeywordBufByCard(KeywordBuf.Endurance, 1, null);
-            var buff = owner.bufListDetail.GetActivatedBufList()
-                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
-            if (buff != null)
-                buff.stack += 2;
+            if (owner.bufListDetail.GetActivatedBufList()
+                    .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341) is BattleUnitBuf_BlueFlame_Sa21341 buff)
+                buff.AddStacks(2);
         }
     }
 }

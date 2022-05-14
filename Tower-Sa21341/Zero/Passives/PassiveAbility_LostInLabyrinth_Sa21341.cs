@@ -4,7 +4,7 @@
     {
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
-            behavior.ApplyDiceStatBonus(new DiceStatBonus{power = 1});
+            behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
         }
 
         public override void OnSucceedAttack(BattleDiceBehavior behavior)

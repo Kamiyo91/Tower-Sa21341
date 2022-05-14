@@ -17,12 +17,14 @@ namespace VortexLabyrinth_Sa21341.Miyu.Cards
                 };
             }
         }
+
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return !owner.cardSlotDetail.cardAry.Exists(x =>
                 x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 44));
         }
-        public override void OnEndAreaAttack()
+
+        public override void OnStartBattle()
         {
             foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction))
             {
@@ -32,7 +34,10 @@ namespace VortexLabyrinth_Sa21341.Miyu.Cards
                 if (!unit.bufListDetail.HasBuf<BattleUnitBuf_BlueShield_Sa21341>())
                     unit.bufListDetail.AddBuf(new BattleUnitBuf_BlueShield_Sa21341());
             }
+        }
 
+        public override void OnEndAreaAttack()
+        {
             if (!_motionChanged) return;
             _motionChanged = false;
             owner.view.charAppearance.ChangeMotion(ActionDetail.Default);

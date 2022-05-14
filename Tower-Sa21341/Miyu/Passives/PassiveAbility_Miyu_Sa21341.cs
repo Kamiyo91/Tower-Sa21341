@@ -5,6 +5,7 @@ using KamiyoStaticUtil.Utils;
 using LOR_DiceSystem;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Maps;
+using VortexLabyrinth_Sa21341.Miyu.Buffs;
 using VortexLabyrinth_Sa21341.UtilSa21341;
 
 namespace VortexLabyrinth_Sa21341.Miyu.Passives
@@ -15,6 +16,8 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
 
         public override void OnWaveStart()
         {
+            foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction))
+                unit.bufListDetail.AddBuf(new BattleUnitBuf_MiyuImmunity_Sa21341());
             _used = false;
             InitDialog();
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 15));
@@ -61,6 +64,7 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
                 _used = true;
                 ChangeToMiyuEgoMap();
             }
+
             if (curCard.card.GetID() != new LorId(VortexModParameters.PackageId, 15)) return;
             owner.personalEgoDetail.RemoveCard(curCard.card.GetID());
             _used = true;

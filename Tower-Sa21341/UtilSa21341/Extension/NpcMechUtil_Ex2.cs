@@ -16,7 +16,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
             _saveId = saveId;
         }
 
-        public void CheckPhase()
+        public virtual void CheckPhase()
         {
             if (_model.Owner.hp > _model.MechHp || _model.Phase > 0) return;
             _model.Phase++;
@@ -33,7 +33,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
             UnitUtil.ChangeCardCostByValue(_model.Owner, -2, 99);
         }
 
-        public void CheckPhaseSingle()
+        public virtual void CheckPhaseSingle()
         {
             if (_model.Owner.hp > _model.MechHp &&
                 BattleObjectManager.instance.GetAliveList(_model.Owner.faction).Count > 1 ||
@@ -52,7 +52,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
             UnitUtil.ChangeCardCostByValue(_model.Owner, -2, 99);
         }
 
-        public void OnEndBattle()
+        public virtual void OnEndBattle()
         {
             var stageModel = Singleton<StageController>.Instance.GetStageModel();
             var currentWaveModel = Singleton<StageController>.Instance.GetCurrentWaveModel();
@@ -64,7 +64,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
             currentWaveModel.ResetUnitBattleDataList(list);
         }
 
-        public void Restart()
+        public virtual void Restart()
         {
             Singleton<StageController>.Instance.GetStageModel()
                 .GetStageStorageData<int>(_saveId, out var curPhase);

@@ -8,10 +8,10 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
         public override void OnUseCard()
         {
             owner.cardSlotDetail.RecoverPlayPoint(1);
-            var buff = owner.bufListDetail.GetActivatedBufList()
-                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
-            if (buff == null || buff.stack < 3) return;
-            buff.stack -= 3;
+            if (!(owner.bufListDetail.GetActivatedBufList()
+                        .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341) is BattleUnitBuf_BlueFlame_Sa21341
+                    buff) || buff.stack < 5) return;
+            buff.AddStacks(-5);
             owner.allyCardDetail.DrawCards(1);
             card.ApplyDiceStatBonus(DiceMatch.AllDice, new DiceStatBonus
             {

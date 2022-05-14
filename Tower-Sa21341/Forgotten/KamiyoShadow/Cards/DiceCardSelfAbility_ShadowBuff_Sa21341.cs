@@ -1,16 +1,15 @@
 ﻿using System.Linq;
-using KamiyoStaticUtil.Utils;
 using VortexLabyrinth_Sa21341.BLL;
-using VortexLabyrinth_Sa21341.Zero.Buffs;
+using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs;
 
-namespace VortexLabyrinth_Sa21341.Zero.Cards
+namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
 {
-    public class DiceCardSelfAbility_BlueFlameBuff_Sa21341 : DiceCardSelfAbilityBase
+    public class DiceCardSelfAbility_ShadowBuff_Sa21341 : DiceCardSelfAbilityBase
     {
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return owner.bufListDetail.GetActivatedBufList()
-                       .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341)?.stack > 4 &&
+                       .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341)?.stack > 24 &&
                    !owner.cardSlotDetail.cardAry.Exists(x =>
                        x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 33));
         }
@@ -23,12 +22,11 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
 
         private static void Activate(BattleUnitModel unit)
         {
-            SkinUtil.BurnEffect(unit);
+            unit.bufListDetail.AddBuf(new BattleUnitBuf_ShadowBuff_Sa21341());
             if (unit.bufListDetail.GetActivatedBufList()
-                    .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341) is BattleUnitBuf_BlueFlame_Sa21341 buff)
-                buff.AddStacks(-5);
-            unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 1, unit);
-            unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 1, unit);
+                    .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) is BattleUnitBuf_Remembrance_Sa21341
+                buff)
+                buff.AddStacks(-25);
         }
 
         public override bool IsTargetableSelf()

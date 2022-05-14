@@ -1,5 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using UnityEngine;
+using Random = System.Random;
 
 namespace VortexLabyrinth_Sa21341.Zero.Buffs
 {
@@ -34,7 +35,14 @@ namespace VortexLabyrinth_Sa21341.Zero.Buffs
 
         public override void OnAddBuf(int addedStack)
         {
-            if (stack + addedStack > 25) stack = 25;
+            stack += addedStack;
+            stack = Mathf.Clamp(stack, 0, 25);
+        }
+
+        public void AddStacks(int stacks)
+        {
+            stack += stacks;
+            stack = Mathf.Clamp(stack, 0, 25);
         }
 
         public override void BeforeRollDice(BattleDiceBehavior behavior)

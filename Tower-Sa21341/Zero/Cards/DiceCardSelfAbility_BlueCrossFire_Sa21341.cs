@@ -7,16 +7,16 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
     {
         public override void OnUseCard()
         {
-            var buff = owner.bufListDetail.GetActivatedBufList()
-                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
-            if (buff == null || buff.stack <= 2) return;
+            if (!(owner.bufListDetail.GetActivatedBufList()
+                        .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341) is BattleUnitBuf_BlueFlame_Sa21341
+                    buff) || buff.stack <= 2) return;
             var dice = card.card.CreateDiceCardBehaviorList().FirstOrDefault();
             var limit = 0;
             for (var i = 0; i <= buff.stack + 3 && limit < 3; i += 3)
             {
                 card.AddDice(dice);
                 limit++;
-                buff.stack -= 3;
+                buff.AddStacks(-3);
             }
         }
     }

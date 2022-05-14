@@ -1,6 +1,5 @@
 ﻿using System;
 using KamiyoStaticBLL.MechUtilBaseModels;
-using KamiyoStaticUtil.BaseClass;
 using KamiyoStaticUtil.CommonBuffs;
 using KamiyoStaticUtil.Utils;
 using VortexLabyrinth_Sa21341.Zero.Buffs;

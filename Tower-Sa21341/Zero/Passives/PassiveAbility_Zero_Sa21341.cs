@@ -51,7 +51,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
                 OriginalMapStageIds = new List<LorId>
                 {
                     new LorId(VortexModParameters.PackageId, 5), new LorId(VortexModParameters.PackageId, 6)
-                },
+                }
             }, _buff);
             UnitUtil.CheckSkinProjection(owner);
             if (owner.faction != Faction.Enemy) return;
@@ -68,13 +68,13 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
         public override bool CanAddBuf(BattleUnitBuf buf)
         {
             if (buf.bufType != KeywordBuf.Burn) return true;
-            if (_buff.stack < 25) _buff.stack++;
+            _buff.AddStacks(buf.stack);
             return false;
         }
 
         public override void OnSucceedAttack(BattleDiceBehavior behavior)
         {
-            if (_buff.stack < 25) _buff.stack++;
+            _buff.AddStacks(1);
         }
 
         public override void OnRoundStart()
@@ -114,6 +114,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
                     break;
             }
         }
+
         public override void OnRoundEndTheLast_ignoreDead()
         {
             _util.ReturnFromEgoMap();

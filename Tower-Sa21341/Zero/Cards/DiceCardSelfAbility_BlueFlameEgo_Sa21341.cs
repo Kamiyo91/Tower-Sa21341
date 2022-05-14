@@ -13,10 +13,10 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
 
         public override void OnUseCard()
         {
-            var buff = owner.bufListDetail.GetActivatedBufList()
-                .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
-            if (buff == null) return;
-            buff.stack -= 10;
+            if (!(owner.bufListDetail.GetActivatedBufList()
+                    .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341) is BattleUnitBuf_BlueFlame_Sa21341 buff))
+                return;
+            buff.AddStacks(-10);
         }
     }
 }
