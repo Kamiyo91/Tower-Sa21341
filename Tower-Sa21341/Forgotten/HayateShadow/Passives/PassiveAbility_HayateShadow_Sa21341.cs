@@ -4,7 +4,7 @@ using VortexLabyrinth_Sa21341.Forgotten.Buffs;
 using VortexLabyrinth_Sa21341.Forgotten.HayateShadow.Buffs;
 using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives;
 
-namespace VortexLabyrinth_Sa21341.Forgotten.HayateShadow
+namespace VortexLabyrinth_Sa21341.Forgotten.HayateShadow.Passives
 {
     public class PassiveAbility_HayateShadow_Sa21341 : PassiveAbilityBase
     {
