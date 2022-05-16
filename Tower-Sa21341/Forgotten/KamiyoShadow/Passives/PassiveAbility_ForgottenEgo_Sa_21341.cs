@@ -100,6 +100,12 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
             return _util.GetCount();
         }
 
+        public override void OnDie()
+        {
+            foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction))
+                unit.Die();
+        }
+
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
             if (curCard.card.GetID() == new LorId(VortexModParameters.PackageId, 51))

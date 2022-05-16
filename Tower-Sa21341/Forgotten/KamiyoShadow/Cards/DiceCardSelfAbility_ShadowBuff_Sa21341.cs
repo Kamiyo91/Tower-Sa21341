@@ -9,7 +9,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return owner.bufListDetail.GetActivatedBufList()
-                       .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341)?.stack > 24 &&
+                       .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341)?.stack > 19 &&
                    !owner.cardSlotDetail.cardAry.Exists(x =>
                        x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 52));
         }
@@ -26,7 +26,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
             if (unit.bufListDetail.GetActivatedBufList()
                     .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) is BattleUnitBuf_Remembrance_Sa21341
                 buff)
-                buff.AddStacks(-25);
+                buff.AddStacks(-20);
         }
 
         public override bool IsTargetableSelf()
