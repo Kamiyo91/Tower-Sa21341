@@ -4,11 +4,6 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 {
     public class PassiveAbility_ForgottenMask_Sa21341 : PassiveAbilityBase
     {
-        public override bool IsTargetable_theLast()
-        {
-            return false;
-        }
-
         public override void OnStartTargetedOneSide(BattlePlayingCardDataInUnitModel attackerCard)
         {
             UnitUtil.SetPassiveCombatLog(this, owner);
