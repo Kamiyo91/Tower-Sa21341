@@ -100,6 +100,7 @@
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_LightingBlade_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_PowerSlash_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_Rage_Sa21341.cs" />
+    <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_ShadowFingersnapNoOc_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_ShadowFingersnap_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_Ultima_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Passives\PassiveAbility_HayateShadow_Sa21341.cs" />

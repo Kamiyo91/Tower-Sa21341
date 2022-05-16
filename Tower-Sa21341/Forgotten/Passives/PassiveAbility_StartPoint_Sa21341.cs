@@ -8,17 +8,19 @@ namespace VortexLabyrinth_Sa21341.Forgotten.Passives
 {
     public class PassiveAbility_StartPoint_Sa21341 : PassiveAbilityBase
     {
-        public override void OnRoundEndTheLast_ignoreDead()
+        public override void OnRoundEndTheLast()
         {
-            owner.Die();
+            BattleObjectManager.instance.UnregisterUnit(owner);
             UnitUtil.AddNewUnitEnemySide(new UnitModel
             {
-                Id = 2,
+                Id = 13,
                 Name = ModParameters.NameTexts
-                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 13))).Value,
                 Pos = 0,
-                EmotionLevel = 1
+                EmotionLevel = 1,
+                OnWaveStart = true
             }, VortexModParameters.PackageId);
+            UnitUtil.RefreshCombatUI();
         }
 
         public override void OnWaveStart()

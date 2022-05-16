@@ -28,7 +28,6 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
                 var gameObject = Object.Instantiate(original) as GameObject;
                 if (gameObject != null)
                 {
-                    gameObject.GetComponent<Renderer>().material.color = Color.gray;
                     gameObject.transform.parent = owner.view.charAppearance.transform;
                     gameObject.transform.localPosition = Vector3.zero;
                     gameObject.transform.localRotation = Quaternion.identity;

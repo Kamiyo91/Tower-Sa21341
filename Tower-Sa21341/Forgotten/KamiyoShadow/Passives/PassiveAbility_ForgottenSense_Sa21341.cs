@@ -7,7 +7,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
     {
         public override void OnStartBattle()
         {
-            UnitUtil.ReadyCounterCard(owner, 18, VortexModParameters.PackageId);
+            UnitUtil.ReadyCounterCard(owner, 45, VortexModParameters.PackageId);
         }
     }
 }

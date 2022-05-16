@@ -7,6 +7,8 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
     public class BattleUnitBuf_Remembrance_Sa21341 : BattleUnitBuf
     {
         private Random _random;
+        protected override string keywordId => "Remembrance_Sa21341";
+        protected override string keywordIconId => "Forgotten_Sa21341";
 
         public override void Init(BattleUnitModel owner)
         {
@@ -40,6 +42,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             var targetBuff = RandomUtil.SelectOne(targetBuffs);
             if (targetBuff.stack > 1) targetBuff.stack = 1;
             _owner.bufListDetail.AddBuf(targetBuff);
+        }
+
+        public override void OnRoundEnd()
+        {
+            AddStacks(-1);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using LOR_DiceSystem;
 using VortexLabyrinth_Sa21341.Forgotten.Buffs;
+using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs;
 using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives;
 
 namespace VortexLabyrinth_Sa21341.Forgotten.WiltonShadow.Passives
@@ -12,8 +13,9 @@ namespace VortexLabyrinth_Sa21341.Forgotten.WiltonShadow.Passives
 
         public override void OnWaveStart()
         {
+            owner.bufListDetail.AddBuf(new BattleUnitBuf_0CardCost_Sa21341());
             owner.bufListDetail.AddBuf(new BattleUnitBuf_StartPoint_Sa21341());
-            _passive = BattleObjectManager.instance.GetAliveList()
+            _passive = BattleObjectManager.instance.GetAliveList(owner.faction)
                     .FirstOrDefault(x => x.passiveDetail.HasPassive<PassiveAbility_ForgottenEgo_Sa_21341>())?
                     .passiveDetail.PassiveList
                     .FirstOrDefault(x => x is PassiveAbility_ForgottenEgo_Sa_21341) as
@@ -22,7 +24,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.WiltonShadow.Passives
 
         public override int SpeedDiceNumAdder()
         {
-            return 4;
+            return _passive.GetPhase() < 4 ? 4 : 2;
         }
 
         public override void OnRoundStart()

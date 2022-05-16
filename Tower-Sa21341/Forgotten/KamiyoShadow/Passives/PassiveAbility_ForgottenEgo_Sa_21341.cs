@@ -15,7 +15,6 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
         private bool _singleUse;
         private NpcMechUtil_Forgotten _util;
 
-
         public override void OnWaveStart()
         {
             _singleUse = false;
@@ -33,25 +32,25 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
                 {
                     new LorId(VortexModParameters.PackageId, 7), new LorId(VortexModParameters.PackageId, 8)
                 },
-                LorIdEgoMassAttack = new LorId(VortexModParameters.PackageId, 32),
-                EgoAttackCardId = new LorId(VortexModParameters.PackageId, 32)
+                LorIdEgoMassAttack = new LorId(VortexModParameters.PackageId, 51),
+                EgoAttackCardId = new LorId(VortexModParameters.PackageId, 51)
             }, "ForgottenPhase_Sa21341");
             _util.Restart();
         }
 
         public override void OnRoundStart()
         {
-            if (GetPhase() < 3) owner.bufListDetail.AddBuf(new BattleUnitBuf_CannotAct_Sa21341());
+            if (GetPhase() < 4) owner.bufListDetail.AddBuf(new BattleUnitBuf_CannotAct_Sa21341());
         }
 
         public override int SpeedDiceNumAdder()
         {
-            return GetPhase() > 3 ? 7 : 0;
+            return GetPhase() > 3 ? 4 : 0;
         }
 
         public int GetPhase()
         {
-            return _util.GetPhase();
+            return _util?.GetPhase() ?? 0;
         }
 
         public override void OnRoundEnd()
@@ -70,7 +69,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
             if (_singleUse || _buff.stack < 25) return base.OnSelectCardAuto(origin, currentDiceSlotIdx);
             _singleUse = true;
             origin = BattleDiceCardModel.CreatePlayingCard(
-                ItemXmlDataList.instance.GetCardItem(new LorId(VortexModParameters.PackageId, 32)));
+                ItemXmlDataList.instance.GetCardItem(new LorId(VortexModParameters.PackageId, 51)));
             return base.OnSelectCardAuto(origin, currentDiceSlotIdx);
         }
 
@@ -78,17 +77,18 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
         {
             foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction).Where(x => x != owner))
             {
-                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 1);
-                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 1);
+                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 2);
+                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 2);
             }
 
             if (_util.GetPhase() <= 4) return;
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 1);
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 1);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 2);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 2);
         }
 
         public override void OnRoundEndTheLast()
         {
+            if (_util == null) return;
             if (_util.GetPhase() > 3) _util.IncreaseCount();
             _util.CheckPhase();
         }
@@ -100,7 +100,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
-            if (curCard.card.GetID() == new LorId(VortexModParameters.PackageId, 32))
+            if (curCard.card.GetID() == new LorId(VortexModParameters.PackageId, 51))
             {
                 _buff.stack = 0;
                 owner.allyCardDetail.ExhaustACardAnywhere(curCard.card);

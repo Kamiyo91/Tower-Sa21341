@@ -9,9 +9,9 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
         public override bool OnChooseCard(BattleUnitModel owner)
         {
             return owner.bufListDetail.GetActivatedBufList()
-                       .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341)?.stack > 4 &&
+                       .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341)?.stack > 3 &&
                    !owner.cardSlotDetail.cardAry.Exists(x =>
-                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 33));
+                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 52));
         }
 
         public override void OnUseInstance(BattleUnitModel unit, BattleDiceCardModel self, BattleUnitModel targetUnit)
@@ -24,13 +24,14 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
         {
             var buff = owner.bufListDetail.GetActivatedBufList()
                 .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) as BattleUnitBuf_Remembrance_Sa21341;
-            buff?.AddStacks(-5);
+            buff?.AddStacks(-3);
             var targetBuffs = unit.bufListDetail.GetActivatedBufList()
                 .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
             if (!targetBuffs.Any())
             {
+                owner.cardSlotDetail.RecoverPlayPoint(1);
                 owner.personalEgoDetail.AddCard(cardId);
-                buff?.AddStacks(+5);
+                buff?.AddStacks(+3);
                 return;
             }
 

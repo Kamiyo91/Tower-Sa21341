@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using KamiyoStaticBLL.Enums;
 using KamiyoStaticBLL.MechUtilBaseModels;
 using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.Utils;
+using LOR_XML;
 using VortexLabyrinth_Sa21341.BLL;
 
 namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.Forgotten
@@ -40,6 +43,16 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.Forgotten
             if (_model.Phase > 3) return;
             if (_model.Phase >= 1 &&
                 (_additionalUnit == null || _additionalUnit.hp >= _additionalUnit.MaxHp * 0.5f)) return;
+            UnitUtil.BattleAbDialog(_model.Owner.view.dialogUI, new List<AbnormalityCardDialog>
+            {
+                new AbnormalityCardDialog
+                {
+                    id = "ForgottenPhase",
+                    dialog = ModParameters.EffectTexts
+                        .FirstOrDefault(x => x.Key.Contains($"ForgottenPhase{_model.Phase + 1}_Sa21341")).Value.Desc
+                }
+            }, AbColorType.Negative);
+            UnitUtil.LevelUpEmotion(_model.Owner, 1);
             switch (_model.Phase)
             {
                 case 0:
@@ -59,42 +72,44 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.Forgotten
         private void AddPhaseUnit(int phase)
         {
             if (BattleObjectManager.instance.GetList(_model.Owner.faction).Exists(x => x == _additionalUnit))
-            {
-                if (!_additionalUnit.IsDead()) _additionalUnit.Die();
                 BattleObjectManager.instance.UnregisterUnit(_additionalUnit);
-            }
-
             switch (phase)
             {
                 case 0:
                     _additionalUnit = UnitUtil.AddNewUnitEnemySide(new UnitModel
                     {
-                        Id = 2,
+                        Id = 10,
                         Name = ModParameters.NameTexts
-                            .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                            .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 10))).Value,
                         Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
-                        EmotionLevel = 1
+                        EmotionLevel = 1,
+                        OnWaveStart = true
                     }, VortexModParameters.PackageId);
+                    UnitUtil.RefreshCombatUI();
                     break;
                 case 1:
                     _additionalUnit = UnitUtil.AddNewUnitEnemySide(new UnitModel
                     {
-                        Id = 2,
+                        Id = 11,
                         Name = ModParameters.NameTexts
-                            .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                            .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 11))).Value,
                         Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
-                        EmotionLevel = 2
+                        EmotionLevel = 2,
+                        OnWaveStart = true
                     }, VortexModParameters.PackageId);
+                    UnitUtil.RefreshCombatUI();
                     break;
                 case 2:
                     _additionalUnit = UnitUtil.AddNewUnitEnemySide(new UnitModel
                     {
-                        Id = 2,
+                        Id = 12,
                         Name = ModParameters.NameTexts
-                            .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                            .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 12))).Value,
                         Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
-                        EmotionLevel = 3
+                        EmotionLevel = 3,
+                        OnWaveStart = true
                     }, VortexModParameters.PackageId);
+                    UnitUtil.RefreshCombatUI();
                     break;
             }
         }
@@ -103,35 +118,38 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.Forgotten
         {
             if (BattleObjectManager.instance.GetList(_model.Owner.faction).Exists(x => x == _additionalUnit))
             {
-                if (!_additionalUnit.IsDead()) _additionalUnit.Die();
                 BattleObjectManager.instance.UnregisterUnit(_additionalUnit);
                 _additionalUnit = null;
             }
 
             UnitUtil.AddNewUnitEnemySide(new UnitModel
             {
-                Id = 2,
+                Id = 10,
                 Name = ModParameters.NameTexts
-                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 10))).Value,
                 Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
-                EmotionLevel = 1
+                EmotionLevel = 5,
+                OnWaveStart = true
             }, VortexModParameters.PackageId);
             UnitUtil.AddNewUnitEnemySide(new UnitModel
             {
-                Id = 2,
+                Id = 11,
                 Name = ModParameters.NameTexts
-                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 11))).Value,
                 Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
-                EmotionLevel = 2
+                EmotionLevel = 5,
+                OnWaveStart = true
             }, VortexModParameters.PackageId);
             UnitUtil.AddNewUnitEnemySide(new UnitModel
             {
-                Id = 2,
+                Id = 12,
                 Name = ModParameters.NameTexts
-                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 2))).Value,
+                    .FirstOrDefault(x => x.Key.Equals(new LorId(VortexModParameters.PackageId, 12))).Value,
                 Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
-                EmotionLevel = 3
+                EmotionLevel = 5,
+                OnWaveStart = true
             }, VortexModParameters.PackageId);
+            UnitUtil.RefreshCombatUI();
         }
 
         public override void OnEndBattle()

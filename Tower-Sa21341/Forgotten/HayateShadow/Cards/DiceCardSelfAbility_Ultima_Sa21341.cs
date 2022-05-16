@@ -23,7 +23,8 @@ namespace VortexLabyrinth_Sa21341.Forgotten.HayateShadow.Cards
         {
             if (_atkLand < Check) return;
             var buff =
-                owner.bufListDetail.GetActivatedBufList().FirstOrDefault(x => x is BattleUnitBuf_ShadowEntertainMe_Sa21341) as
+                owner.bufListDetail.GetActivatedBufList()
+                        .FirstOrDefault(x => x is BattleUnitBuf_ShadowEntertainMe_Sa21341) as
                     BattleUnitBuf_ShadowEntertainMe_Sa21341;
             buff?.AddStacks(3);
         }

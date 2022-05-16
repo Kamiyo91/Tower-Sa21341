@@ -1,6 +1,4 @@
-﻿
-
-namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Cards
+﻿namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Cards
 {
     public class DiceCardSelfAbility_SakuraBloom_Sa21341 : DiceCardSelfAbilityBase
     {

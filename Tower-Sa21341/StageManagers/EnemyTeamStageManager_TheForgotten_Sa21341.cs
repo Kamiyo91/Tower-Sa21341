@@ -12,17 +12,17 @@ namespace VortexLabyrinth_Sa21341.StageManagers
 
         public override void OnWaveStart()
         {
-            CustomMapHandler.InitCustomMap<Forgotten1_Sa21341MapManager>("Forgotten1_Sa21341MapManager", false, true,
+            CustomMapHandler.InitCustomMap<Forgotten1_Sa21341MapManager>("Forgotten1_Sa21341", false, true,
                 0.5f,
                 0.55f);
-            CustomMapHandler.InitCustomMap<Forgotten2_Sa21341MapManager>("Forgotten2_Sa21341MapManager", false, true,
+            CustomMapHandler.InitCustomMap<Forgotten2_Sa21341MapManager>("Forgotten2_Sa21341", false, true,
                 0.5f, 0.2f);
-            CustomMapHandler.InitCustomMap<Forgotten3_Sa21341MapManager>("Forgotten3_Sa21341MapManager", false, true,
+            CustomMapHandler.InitCustomMap<Forgotten3_Sa21341MapManager>("Forgotten3_Sa21341", false, true,
                 0.5f, 0.2f);
-            CustomMapHandler.InitCustomMap<Forgotten4_Sa21341MapManager>("Forgotten4_Sa21341MapManager", false, true,
+            CustomMapHandler.InitCustomMap<Forgotten4_Sa21341MapManager>("Forgotten4_Sa21341", false, true,
                 0.5f, 0.3f,
                 0.5f, 0.475f);
-            CustomMapHandler.InitCustomMap<Forgotten5_Sa21341MapManager>("Forgotten5_Sa21341MapManager", false, true,
+            CustomMapHandler.InitCustomMap<Forgotten5_Sa21341MapManager>("Forgotten5_Sa21341", false, true,
                 0.5f,
                 0.475f, 0.5f, 0.225f);
             CustomMapHandler.EnforceMap();
@@ -36,7 +36,7 @@ namespace VortexLabyrinth_Sa21341.StageManagers
         public override void OnRoundStart()
         {
             if (_passive == null)
-                _passive = BattleObjectManager.instance.GetAliveList()
+                _passive = BattleObjectManager.instance.GetAliveList(Faction.Enemy)
                         .FirstOrDefault(x => x.passiveDetail.HasPassive<PassiveAbility_ForgottenEgo_Sa_21341>())?
                         .passiveDetail.PassiveList
                         .FirstOrDefault(x => x is PassiveAbility_ForgottenEgo_Sa_21341) as
