@@ -217,13 +217,9 @@ namespace VortexLabyrinth_Sa21341
             ModParameters.BannedEmotionStages.AddRange(new Dictionary<LorId, bool>
             {
                 { new LorId(VortexModParameters.PackageId, 1), false },
-                { new LorId(VortexModParameters.PackageId, 2), false },
                 { new LorId(VortexModParameters.PackageId, 3), false },
-                { new LorId(VortexModParameters.PackageId, 4), false },
                 { new LorId(VortexModParameters.PackageId, 5), false },
-                { new LorId(VortexModParameters.PackageId, 6), false },
                 { new LorId(VortexModParameters.PackageId, 7), false },
-                { new LorId(VortexModParameters.PackageId, 8), false }
             });
             ModParameters.ExtraReward.AddRange(new Dictionary<LorId, ExtraRewards>
             {
