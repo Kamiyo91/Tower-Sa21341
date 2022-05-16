@@ -35,13 +35,23 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
 
         public override void OnSuccessAttack(BattleDiceBehavior behavior)
         {
-            if (_random.Next(0, 100) >= 25 + stack) return;
+            if (_random.Next(0, 100) >= 10 + stack) return;
             var targetBuffs = behavior.card.target.bufListDetail.GetActivatedBufList()
                 .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
             if (!targetBuffs.Any()) return;
             var targetBuff = RandomUtil.SelectOne(targetBuffs);
             if (targetBuff.stack > 1) targetBuff.stack = 1;
             _owner.bufListDetail.AddBuf(targetBuff);
+        }
+
+        public override void OnWinParrying(BattleDiceBehavior behavior)
+        {
+            AddStacks(1);
+        }
+
+        public override void OnLoseParrying(BattleDiceBehavior behavior)
+        {
+            AddStacks(-1);
         }
 
         public override void OnRoundEnd()

@@ -10,7 +10,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
         public override void Init(BattleUnitModel owner)
         {
             base.Init(owner);
-            var mainShadow = BattleObjectManager.instance.GetAliveList().FirstOrDefault(x =>
+            var mainShadow = BattleObjectManager.instance.GetAliveList(owner.faction).FirstOrDefault(x =>
                 x.passiveDetail.HasPassive<PassiveAbility_ForgottenEgo_Sa_21341>() ||
                 x.passiveDetail.HasPassive<PassiveAbility_ForgottenEgoPlayer_Sa21341>());
             if (mainShadow != null)

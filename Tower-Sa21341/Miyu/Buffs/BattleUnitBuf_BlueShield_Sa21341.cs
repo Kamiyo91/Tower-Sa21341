@@ -1,6 +1,7 @@
 ﻿using KamiyoStaticBLL.Models;
 using LOR_DiceSystem;
 using Sound;
+using VortexLabyrinth_Sa21341.BLL;
 
 namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 {
@@ -25,7 +26,8 @@ namespace VortexLabyrinth_Sa21341.Miyu.Buffs
 
         public override int GetDamageReduction(BattleDiceBehavior behavior)
         {
-            if (ModParameters.OnlyAllyTargetCardIds.Contains(behavior.card.card.GetID()))
+            if (ModParameters.OnlyAllyTargetCardIds.Contains(behavior.card.card.GetID()) ||
+                VortexModParameters.IgnoredCombatCards.Contains(behavior.card.card.GetID()))
                 return base.GetDamageReduction(behavior);
             _protectBp = true;
             if (_owner.battleCardResultLog == null) return 9999;

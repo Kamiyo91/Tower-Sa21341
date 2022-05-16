@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using KamiyoStaticBLL.MechUtilBaseModels;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs;
@@ -45,6 +46,9 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 
         public override void OnRoundStartAfter()
         {
+            foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction).Where(x => x != owner))
+                if (!unit.bufListDetail.HasBuf<BattleUnitBuf_AllyRemembrance_Sa21341>())
+                    unit.bufListDetail.AddBuf(new BattleUnitBuf_AllyRemembrance_Sa21341());
             AddCards();
         }
 

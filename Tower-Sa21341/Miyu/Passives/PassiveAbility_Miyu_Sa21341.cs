@@ -117,6 +117,10 @@ namespace VortexLabyrinth_Sa21341.Miyu.Passives
                     owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
                         10000005));
                     break;
+                case 7:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000008));
+                    break;
             }
         }
     }

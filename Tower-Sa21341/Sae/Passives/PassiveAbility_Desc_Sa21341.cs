@@ -27,6 +27,10 @@ namespace VortexLabyrinth_Sa21341.Sae.Passives
                     owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
                         10000010));
                     break;
+                case 7:
+                    owner.UnitData.unitData.InitBattleDialogByDefaultBook(new LorId(VortexModParameters.PackageId,
+                        10000012));
+                    break;
             }
         }
     }

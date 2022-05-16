@@ -103,6 +103,8 @@
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_ShadowFingersnapNoOc_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_ShadowFingersnap_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Cards\DiceCardSelfAbility_Ultima_Sa21341.cs" />
+    <Compile Include="Forgotten\HayateShadow\Dices\DiceCardAbility_FingersnapSoundNoOc_Sa21341.cs" />
+    <Compile Include="Forgotten\HayateShadow\Dices\DiceCardAbility_FingersnapSound_Sa21341.cs" />
     <Compile Include="Forgotten\HayateShadow\Passives\PassiveAbility_HayateShadow_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_0CardCost_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_AllyRemembrance_Sa21341.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenEgo_Sa_21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenMask_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenSense_Sa21341.cs" />
+    <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_LostHostSoul_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_EnergyRelease_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_Rush_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_SakuraBloom_Sa21341.cs" />

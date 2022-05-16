@@ -387,7 +387,6 @@ namespace VortexLabyrinth_Sa21341
                 new LorId(VortexModParameters.PackageId, 22), new LorId(VortexModParameters.PackageId, 23),
                 new LorId(VortexModParameters.PackageId, 24)
             });
-            ModParameters.ExtraMotions.AddRange(new List<LorId> { new LorId(VortexModParameters.PackageId, 10000012) });
         }
     }
 }

@@ -39,5 +39,15 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
             if (targetBuff.stack > 1) targetBuff.stack = 1;
             owner.bufListDetail.AddBuf(targetBuff);
         }
+
+        public override bool IsOnlyAllyUnit()
+        {
+            return true;
+        }
+
+        public override bool IsValidTarget(BattleUnitModel unit, BattleDiceCardModel self, BattleUnitModel targetUnit)
+        {
+            return targetUnit.bufListDetail.GetActivatedBufList().Any(x => x.positiveType == BufPositiveType.Positive);
+        }
     }
 }
