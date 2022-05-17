@@ -103,7 +103,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
         public override void OnDie()
         {
             foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction))
-                unit.Die();
+                unit.DieFake();
         }
 
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
