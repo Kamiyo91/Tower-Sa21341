@@ -33,6 +33,7 @@ namespace VortexLabyrinth_Sa21341
                 Path.GetDirectoryName(
                     Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
             ModParameters.Path.Add(VortexModParameters.Path);
+            ModParameters.LocalizePackageIdAndPath.Add(VortexModParameters.PackageId,VortexModParameters.Path);
             ModParameters.SpritePreviewChange.AddRange(new Dictionary<string, List<LorId>>
             {
                 { "SaeDefault_Sa21341", new List<LorId> { new LorId(VortexModParameters.PackageId, 10000001) } },

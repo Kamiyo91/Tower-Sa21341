@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs;
 
@@ -31,9 +32,17 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
             {
                 return;
             }
-            var targetBuff = RandomUtil.SelectOne(targetBuffs);
-            if (targetBuff.stack > 1) targetBuff.stack = 1;
-            owner.bufListDetail.AddBuf(targetBuff);
+            var targetBuffType = RandomUtil.SelectOne(targetBuffs).GetType();
+            var buffPlus = owner.bufListDetail.GetActivatedBufList()
+                .FirstOrDefault(x => x.GetType() == targetBuffType);
+            if (buffPlus == null)
+            {
+                var targetBuff = (BattleUnitBuf)Activator.CreateInstance(targetBuffType);
+                targetBuff.stack = 1;
+                owner.bufListDetail.AddBuf(targetBuff);
+            }
+            else
+                buffPlus.stack++;
         }
 
         public override bool IsTargetableAllUnit()
