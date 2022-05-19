@@ -79,13 +79,13 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
             {
                 if (!unit.bufListDetail.HasBuf<BattleUnitBuf_AllyRemembrance_Sa21341>())
                     unit.bufListDetail.AddBuf(new BattleUnitBuf_AllyRemembrance_Sa21341());
-                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 1);
-                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 1);
+                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 2);
+                unit.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 2);
             }
 
             if (_util.GetPhase() <= 4) return;
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 1);
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 1);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 2);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 2);
         }
 
         public override void OnRoundEndTheLast()

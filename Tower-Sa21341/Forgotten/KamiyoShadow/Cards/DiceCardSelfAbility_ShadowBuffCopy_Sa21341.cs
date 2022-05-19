@@ -28,10 +28,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
             buff?.AddStacks(-3);
             var targetBuffs = unit.bufListDetail.GetActivatedBufList()
                 .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
-            if (!targetBuffs.Any())
-            {
-                return;
-            }
+            if (!targetBuffs.Any()) return;
             var targetBuffType = RandomUtil.SelectOne(targetBuffs).GetType();
             var buffPlus = owner.bufListDetail.GetActivatedBufList()
                 .FirstOrDefault(x => x.GetType() == targetBuffType);
@@ -42,7 +39,9 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
                 owner.bufListDetail.AddBuf(targetBuff);
             }
             else
+            {
                 buffPlus.stack++;
+            }
         }
 
         public override bool IsTargetableAllUnit()

@@ -33,5 +33,10 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
                 max = -1
             });
         }
+
+        public override void BeforeRollDice(BattleDiceBehavior behavior)
+        {
+            behavior.ApplyDiceStatBonus(new DiceStatBonus { max = 1 });
+        }
     }
 }

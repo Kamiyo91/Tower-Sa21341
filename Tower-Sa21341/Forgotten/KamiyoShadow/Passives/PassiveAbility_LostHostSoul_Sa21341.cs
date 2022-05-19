@@ -1,5 +1,4 @@
-﻿using LOR_DiceSystem;
-using VortexLabyrinth_Sa21341.BLL;
+﻿using VortexLabyrinth_Sa21341.BLL;
 
 namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 {
@@ -12,8 +11,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
-            if (behavior.Detail == BehaviourDetail.Evasion)
-                behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
+            behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
         }
 
         private void InitDialog()

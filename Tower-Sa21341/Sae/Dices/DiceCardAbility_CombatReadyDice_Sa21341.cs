@@ -6,7 +6,7 @@
         {
             if (owner.hp > owner.MaxHp * 0.25f) return;
             if (card?.target?.currentDiceAction?.cardBehaviorQueue.Count > 0)
-                card?.target?.currentDiceAction?.DestroyDice(DiceMatch.AllDice, DiceUITiming.AttackAfter);
+                card?.target?.currentDiceAction?.DestroyDice(DiceMatch.AllDice);
         }
     }
 }

@@ -55,5 +55,10 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             Object.Destroy(_aura.gameObject);
             _aura = null;
         }
+
+        public override void BeforeRollDice(BattleDiceBehavior behavior)
+        {
+            behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
+        }
     }
 }
