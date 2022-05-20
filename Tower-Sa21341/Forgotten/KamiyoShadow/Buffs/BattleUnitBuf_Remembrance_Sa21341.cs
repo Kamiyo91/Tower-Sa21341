@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
@@ -39,9 +40,19 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             var targetBuffs = behavior.card.target.bufListDetail.GetActivatedBufList()
                 .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
             if (!targetBuffs.Any()) return;
-            var targetBuff = RandomUtil.SelectOne(targetBuffs);
-            if (targetBuff.stack > 1) targetBuff.stack = 1;
-            _owner.bufListDetail.AddBuf(targetBuff);
+            var targetBuffType = RandomUtil.SelectOne(targetBuffs).GetType();
+            var buffPlus = _owner.bufListDetail.GetActivatedBufList()
+                .FirstOrDefault(x => x.GetType() == targetBuffType);
+            if (buffPlus == null)
+            {
+                var targetBuff = (BattleUnitBuf)Activator.CreateInstance(targetBuffType);
+                targetBuff.stack = 1;
+                _owner.bufListDetail.AddBuf(targetBuff);
+            }
+            else
+            {
+                buffPlus.stack++;
+            }
         }
 
         public override void OnWinParrying(BattleDiceBehavior behavior)
