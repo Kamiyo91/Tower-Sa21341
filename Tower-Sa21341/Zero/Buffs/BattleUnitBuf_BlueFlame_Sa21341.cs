@@ -7,11 +7,13 @@ namespace VortexLabyrinth_Sa21341.Zero.Buffs
     public class BattleUnitBuf_BlueFlame_Sa21341 : BattleUnitBuf
     {
         private Random _random;
+        private int _count;
         protected override string keywordId => "BlueFlame_Sa21341";
         protected override string keywordIconId => "BlueFlame_Sa21341";
 
         public override void OnRoundEnd()
         {
+            _count = 0;
             if (stack > 0) stack--;
         }
 
@@ -23,6 +25,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Buffs
 
         public override void OnSuccessAttack(BattleDiceBehavior behavior)
         {
+            if (_count > 2) return;
             if (_random.Next(0, 100) >= 25 + stack) return;
             var targetBuffs = behavior.card.target.bufListDetail.GetActivatedBufList()
                 .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
@@ -31,6 +34,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Buffs
             if (targetBuff.stack < 2) behavior.card.target.bufListDetail.RemoveBuf(targetBuff);
             else
                 targetBuff.stack--;
+            _count++;
         }
 
         public override void OnAddBuf(int addedStack)

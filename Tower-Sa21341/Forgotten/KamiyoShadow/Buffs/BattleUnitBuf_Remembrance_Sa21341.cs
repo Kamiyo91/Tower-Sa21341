@@ -8,6 +8,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
     public class BattleUnitBuf_Remembrance_Sa21341 : BattleUnitBuf
     {
         private Random _random;
+        private int _count;
         protected override string keywordId => "Remembrance_Sa21341";
         protected override string keywordIconId => "Forgotten_Sa21341";
 
@@ -36,6 +37,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
 
         public override void OnSuccessAttack(BattleDiceBehavior behavior)
         {
+            if (_count > 2) return;
             if (_random.Next(0, 100) >= 25 + stack) return;
             var targetBuffs = behavior.card.target.bufListDetail.GetActivatedBufList()
                 .Where(x => x.positiveType == BufPositiveType.Positive).ToList();
@@ -53,6 +55,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             {
                 buffPlus.stack++;
             }
+            _count++;
         }
 
         public override void OnWinParrying(BattleDiceBehavior behavior)
@@ -67,6 +70,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
 
         public override void OnRoundEnd()
         {
+            _count = 0;
             AddStacks(-1);
         }
     }
