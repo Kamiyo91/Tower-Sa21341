@@ -10,6 +10,8 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 {
     public class PassiveAbility_ForgottenEgoPlayer_Sa21341 : PassiveAbilityBase
     {
+        private readonly StageLibraryFloorModel
+            _floor = Singleton<StageController>.Instance.GetCurrentStageFloorModel();
         private BattleUnitBuf_Remembrance_Sa21341 _buff;
         private MechUtilEx _util;
 
@@ -17,6 +19,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
         public override void OnWaveStart()
         {
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 52));
+            owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 69));
             _buff = new BattleUnitBuf_Remembrance_Sa21341();
             owner.bufListDetail.AddBuf(_buff);
             _util = new MechUtilEx(new MechUtilBaseModel
@@ -34,9 +37,18 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
             });
         }
 
+        public override void OnRoundEndTheLast()
+        {
+            if(_util.CheckSpecialUsed()) _util.SummonSpecialUnit(_floor, 10000013, new LorId(VortexModParameters.PackageId,11),owner.emotionDetail.EmotionLevel);
+        }
+
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
-            _util.ChangeToEgoMap(curCard.card.GetID());
+            var cardId = curCard.card.GetID();
+            _util.ChangeToEgoMap(cardId);
+            if (cardId != new LorId(VortexModParameters.PackageId, 69)) return;
+            _util.SpecialCardUseOn();
+            owner.personalEgoDetail.RemoveCard(cardId);
         }
 
         public override void OnRoundEndTheLast_ignoreDead()

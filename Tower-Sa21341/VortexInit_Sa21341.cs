@@ -99,7 +99,7 @@ namespace VortexLabyrinth_Sa21341
                 new LorId(VortexModParameters.PackageId, 10), new LorId(VortexModParameters.PackageId, 11),
                 new LorId(VortexModParameters.PackageId, 33), new LorId(VortexModParameters.PackageId, 34),
                 new LorId(VortexModParameters.PackageId, 49), new LorId(VortexModParameters.PackageId, 50),
-                new LorId(VortexModParameters.PackageId, 53)
+                new LorId(VortexModParameters.PackageId, 53),new LorId(VortexModParameters.PackageId, 69)
             });
             ModParameters.EgoPersonalCardList.AddRange(new List<LorId>
             {
@@ -353,15 +353,15 @@ namespace VortexLabyrinth_Sa21341
             });
             ModParameters.EmotionExcludePassive.AddRange(new List<LorId>
             {
-                new LorId(VortexModParameters.PackageId, 8)
+                new LorId(VortexModParameters.PackageId, 8),new LorId(VortexModParameters.PackageId, 39)
             });
             ModParameters.SupportCharPassive.AddRange(new List<LorId>
             {
-                new LorId(VortexModParameters.PackageId, 8)
+                new LorId(VortexModParameters.PackageId, 8),new LorId(VortexModParameters.PackageId, 39)
             });
             ModParameters.BannedEmotionSelectionUnit.AddRange(new List<LorId>
             {
-                new LorId(VortexModParameters.PackageId, 10000005)
+                new LorId(VortexModParameters.PackageId, 10000005),new LorId(VortexModParameters.PackageId, 10000013)
             });
             ModParameters.OneSideCards.AddRange(new List<LorId>
             {
@@ -376,7 +376,7 @@ namespace VortexLabyrinth_Sa21341
             });
             ModParameters.NoEgoFloorUnit.AddRange(new List<LorId>
             {
-                new LorId(VortexModParameters.PackageId, 10000005)
+                new LorId(VortexModParameters.PackageId, 10000005),new LorId(VortexModParameters.PackageId, 10000013)
             });
             ModParameters.OnlyAllyTargetCardIds.AddRange(new List<LorId>
             {

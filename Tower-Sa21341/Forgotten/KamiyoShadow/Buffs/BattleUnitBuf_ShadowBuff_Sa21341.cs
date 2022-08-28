@@ -1,4 +1,5 @@
 ﻿using Battle.CreatureEffect;
+using KamiyoStaticUtil.Utils;
 using Sound;
 using UnityEngine;
 
@@ -13,9 +14,16 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
         {
             base.Init(owner);
             owner.cardSlotDetail.RecoverPlayPoint(owner.MaxPlayPoint);
+            AddBuff();
             PlayChangingEffect(owner);
         }
 
+        public void AddBuff()
+        {
+            var solo = UnitUtil.SupportCharCheck(_owner) != 1 ? 1 : 3;
+            _owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength,solo);
+            _owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, solo);
+        }
         private void PlayChangingEffect(BattleUnitModel owner)
         {
             owner.view.charAppearance.ChangeMotion(ActionDetail.Default);

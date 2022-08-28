@@ -32,24 +32,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\0Harmony.dll</HintPath>
+      <HintPath>..\..\CommonDLL\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="KamiyoStaticBLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\KamiyoStaticDll\KamiyoStaticBLL\bin\Debug\KamiyoStaticBLL.dll</HintPath>
+      <HintPath>..\..\CommonDLL\KamiyoStaticBLL.dll</HintPath>
     </Reference>
     <Reference Include="KamiyoStaticUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\KamiyoStaticDll\KamiyoStaticUtil\bin\Debug\KamiyoStaticUtil.dll</HintPath>
+      <HintPath>..\..\CommonDLL\KamiyoStaticUtil.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\Mono.Cecil.dll</HintPath>
+      <HintPath>..\..\CommonDLL\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="MonoMod.Utils">
-      <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\MonoMod.Utils.dll</HintPath>
+      <HintPath>..\..\CommonDLL\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,6 +70,10 @@
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UI.dll</HintPath>
@@ -113,17 +117,22 @@
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowBuffCopy_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowBuff_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowMassAttack_Sa21341.cs" />
+    <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowMioSummon_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowSmallBuff_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenEgoPlayer_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenEgo_Sa_21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenMask_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenSense_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_LostHostSoul_Sa21341.cs" />
+    <Compile Include="Forgotten\MioShadow\Buffs\BattleUnitBuf_GodAuraRelease_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_EnergyRelease_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_Rush_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_SakuraBloom_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Cards\DiceCardSelfAbility_WaterBlade_Sa21341.cs" />
+    <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_ForgottenLink_Sa21341.cs" />
+    <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_MioShadowPlayer_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_MioShadow_Sa21341.cs" />
+    <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_SupportUnit_Sa21341.cs" />
     <Compile Include="Forgotten\Passives\PassiveAbility_ForgottenBlade_Sa21341.cs" />
     <Compile Include="Forgotten\WiltonShadow\Cards\DiceCardSelfAbility_HorizonSlash_Sa21341.cs" />
     <Compile Include="Forgotten\WiltonShadow\Cards\DiceCardSelfAbility_MysticEyeVision_Sa21341.cs" />
@@ -211,6 +220,7 @@
     <Compile Include="UtilSa21341\CustomMapUtility\Assemblies\CustomMapUtility.cs" />
     <Compile Include="UtilSa21341\Extension\Forgotten\NpcMechUtil_Forgotten.cs" />
     <Compile Include="UtilSa21341\Extension\MechUtilEx.cs" />
+    <Compile Include="UtilSa21341\Extension\MioShadow\MechUtil_MioShadow.cs" />
     <Compile Include="UtilSa21341\Extension\NpcMechUtil_Ex2.cs" />
     <Compile Include="UtilSa21341\Extension\NpcMechUtilEx.cs" />
     <Compile Include="UtilSa21341\Extension\Zero\MechUtil_Zero.cs" />
