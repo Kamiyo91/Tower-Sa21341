@@ -26,7 +26,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
             if (unit.bufListDetail.GetActivatedBufList()
                     .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) is BattleUnitBuf_Remembrance_Sa21341
                 buff)
-                buff.AddStacks(-20);
+                buff.AddStacks(-15);
         }
 
         public override bool IsTargetableSelf()
