@@ -13,6 +13,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.WiltonShadow.Passives
 
         public override void OnWaveStart()
         {
+            owner.ignoreBloodyEffect = true;
             owner.bufListDetail.AddBuf(new BattleUnitBuf_0CardCost_Sa21341());
             owner.bufListDetail.AddBuf(new BattleUnitBuf_StartPoint_Sa21341());
             _passive = BattleObjectManager.instance.GetAliveList(owner.faction)

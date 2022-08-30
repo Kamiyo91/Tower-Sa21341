@@ -17,6 +17,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 
         public override void OnWaveStart()
         {
+            owner.ignoreBloodyEffect = true;
             _singleUse = false;
             _buff = new BattleUnitBuf_Remembrance_Sa21341();
             owner.bufListDetail.AddBuf(_buff);

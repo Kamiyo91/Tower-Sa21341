@@ -60,7 +60,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
                 Name = ModParameters.NameTexts
                     .FirstOrDefault(x => x.Key.Equals(unitNameId)).Value,
                 EmotionLevel = emotionLevel,
-                Pos = BattleObjectManager.instance.GetAliveList(Faction.Player).Count,
+                Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
                 Sephirah = floor.Sephirah,
                 CustomPos = new XmlVector2 { x = 4, y = 0 }
             }, VortexModParameters.PackageId);

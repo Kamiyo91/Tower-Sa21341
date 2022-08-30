@@ -16,6 +16,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.HayateShadow.Passives
 
         public override void OnWaveStart()
         {
+            owner.ignoreBloodyEffect = true;
             owner.bufListDetail.AddBuf(new BattleUnitBuf_0CardCost_Sa21341());
             _cardId = Singleton<StageController>.Instance.GetStageModel().ClassInfo.id ==
                       new LorId(VortexModParameters.PackageId, 7)

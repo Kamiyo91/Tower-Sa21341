@@ -11,9 +11,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
     {
         private MechUtil_MioShadow _util;
         public override bool isImmortal => true;
+        public override bool isInvincibleBp => true;
         private bool _staggered;
         public override void OnWaveStart()
         {
+            owner.ignoreBloodyEffect = true;
             _util = new MechUtil_MioShadow(new MechUtilBaseModel
             {
                 Owner = owner,
