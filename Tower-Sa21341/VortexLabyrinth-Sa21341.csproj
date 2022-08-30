@@ -114,6 +114,7 @@
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_0CardCostPlayer_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_0CardCost_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_AllyRemembrance_Sa21341.cs" />
+    <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_BlackFlame_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_Remembrance_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Buffs\BattleUnitBuf_ShadowBuff_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowBuffCopy_Sa21341.cs" />
@@ -121,6 +122,8 @@
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowMassAttack_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowMioSummon_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Cards\DiceCardSelfAbility_ShadowSmallBuff_Sa21341.cs" />
+    <Compile Include="Forgotten\KamiyoShadow\Dice\DiceCardAbility_BlackFlame3_Sa21341.cs" />
+    <Compile Include="Forgotten\KamiyoShadow\Dice\DiceCardAbility_BlackFlame2_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenEgoPlayer_Sa21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenEgo_Sa_21341.cs" />
     <Compile Include="Forgotten\KamiyoShadow\Passives\PassiveAbility_ForgottenMask_Sa21341.cs" />
@@ -220,6 +223,7 @@
     <Compile Include="StageManagers\EnemyTeamStageManager_Sae_Sa21341.cs" />
     <Compile Include="StageManagers\EnemyTeamStageManager_TheForgotten_Sa21341.cs" />
     <Compile Include="UtilSa21341\CustomMapUtility\Assemblies\CustomMapUtility.cs" />
+    <Compile Include="UtilSa21341\EffectUtil.cs" />
     <Compile Include="UtilSa21341\Extension\Forgotten\NpcMechUtil_Forgotten.cs" />
     <Compile Include="UtilSa21341\Extension\MechUtilEx.cs" />
     <Compile Include="UtilSa21341\Extension\MioShadow\MechUtil_MioShadow.cs" />

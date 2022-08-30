@@ -1,4 +1,5 @@
-﻿using KamiyoStaticBLL.MechUtilBaseModels;
+﻿using System.Linq;
+using KamiyoStaticBLL.MechUtilBaseModels;
 using KamiyoStaticUtil.CommonBuffs;
 using KamiyoStaticUtil.Utils;
 using VortexLabyrinth_Sa21341.BLL;
@@ -64,6 +65,12 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
         {
             _staggered = true;
         }
+
+        public override void OnRoundEndTheLast_ignoreDead()
+        {
+            if(owner.IsDead() && BattleObjectManager.instance.GetAliveList(owner.faction).Any(x => x.Book.BookId == new LorId(VortexModParameters.PackageId, 10000012))) owner.Revive(owner.MaxHp);
+        }
+
         public override void OnDieOtherUnit(BattleUnitModel unit)
         {
             if(unit.faction == owner.faction && unit.Book.BookId == new LorId(VortexModParameters.PackageId,10000012)) owner.Die();

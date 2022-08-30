@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using KamiyoStaticUtil.Utils;
 using VortexLabyrinth_Sa21341.BLL;
 using VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs;
+using VortexLabyrinth_Sa21341.UtilSa21341;
 
 namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
 {
@@ -23,7 +23,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
 
         private static void Activate(BattleUnitModel unit)
         {
-            SkinUtil.BurnEffect(unit);
+            EffectUtil.BurnEffect(unit);
             if (unit.bufListDetail.GetActivatedBufList()
                     .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) is BattleUnitBuf_Remembrance_Sa21341
                 buff)
