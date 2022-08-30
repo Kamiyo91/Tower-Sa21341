@@ -7,6 +7,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
     {
         private const string Path = "6/RedHood_Emotion_Aura";
         private CreatureEffect _aura;
+        public override int paramInBufDesc => 0;
         protected override string keywordId => "ForgottenAura_Sa21341";
         protected override string keywordIconId => "Light_Sa21341";
         public override void Init(BattleUnitModel owner)

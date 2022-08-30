@@ -9,7 +9,6 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Buffs
         {
             stack = 0;
         }
-
         public override bool isAssimilation => true;
         public override int paramInBufDesc => 0;
         protected override string keywordId => "GodAura_Sa21341";
