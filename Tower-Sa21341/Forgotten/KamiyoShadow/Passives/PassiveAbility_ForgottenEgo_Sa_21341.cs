@@ -76,6 +76,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 
         public override void OnRoundStartAfter()
         {
+            if (!owner.bufListDetail.HasBuf<BattleUnitBuf_Remembrance_Sa21341>())
+            {
+                _buff = new BattleUnitBuf_Remembrance_Sa21341();
+                owner.bufListDetail.AddBuf(_buff);
+            }
             foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction).Where(x => x != owner))
             {
                 if (!unit.bufListDetail.HasBuf<BattleUnitBuf_AllyRemembrance_Sa21341>())
