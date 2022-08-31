@@ -4,9 +4,9 @@
     {
         public override void OnRoundStartAfter()
         {
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength,3);
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 3);
-            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Quickness, 3);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength,2);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Endurance, 2);
+            owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Quickness, 2);
         }
     }
 }

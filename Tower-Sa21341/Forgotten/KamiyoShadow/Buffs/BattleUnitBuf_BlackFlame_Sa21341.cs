@@ -5,6 +5,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
 {
     public class BattleUnitBuf_BlackFlame_Sa21341 : BattleUnitBuf
     {
+        public override int paramInBufDesc => 0;
         protected override string keywordId => "BlackFlame_Sa21341";
         protected override string keywordIconId => "BlackFlame_Sa21341";
         public override void OnRoundStartAfter()
