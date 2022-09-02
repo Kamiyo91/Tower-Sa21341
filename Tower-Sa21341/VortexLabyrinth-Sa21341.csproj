@@ -39,11 +39,11 @@
     </Reference>
     <Reference Include="KamiyoStaticBLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CommonDLL\KamiyoStaticBLL.dll</HintPath>
+      <HintPath>..\..\StaticDLL\KamiyoStaticBLL\bin\Debug\KamiyoStaticBLL.dll</HintPath>
     </Reference>
     <Reference Include="KamiyoStaticUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CommonDLL\KamiyoStaticUtil.dll</HintPath>
+      <HintPath>..\..\StaticDLL\KamiyoStaticUtil\bin\Debug\KamiyoStaticUtil.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>..\..\CommonDLL\Mono.Cecil.dll</HintPath>
