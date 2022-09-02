@@ -9,6 +9,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
     {
         private Random _random;
         private int _count;
+        public override int paramInBufDesc => 0;
         protected override string keywordId => "Remembrance_Sa21341";
         protected override string keywordIconId => "Forgotten_Sa21341";
 

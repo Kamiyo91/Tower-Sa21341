@@ -17,14 +17,11 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
         {
             stack += stacks;
             stack = Mathf.Clamp(stack, 0, 10);
+            if (stack > 9 && _aura == null) CreateAura();
         }
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
             if (stack > 9) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
-        }
-        public override void OnRoundStartAfter()
-        {
-            if (stack > 9 && _aura == null) CreateAura();
         }
 
         private void CreateAura()
