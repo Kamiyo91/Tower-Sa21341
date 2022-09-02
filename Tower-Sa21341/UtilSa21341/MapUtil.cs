@@ -32,6 +32,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341
                 StageType.Creature) return;
             CustomMapHandler.RemoveCustomEgoMapByAssimilation(mapName);
             MapStaticUtil.RemoveValueInAddedMap(mapName);
+            Singleton<StageController>.Instance.CheckMapChange();
         }
     }
 }
