@@ -73,5 +73,9 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             _count = 0;
             AddStacks(-1);
         }
+        public override void BeforeRollDice(BattleDiceBehavior behavior)
+        {
+            if (stack > 24) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
+        }
     }
 }

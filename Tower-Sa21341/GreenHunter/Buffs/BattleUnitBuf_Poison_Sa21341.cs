@@ -1,4 +1,6 @@
-﻿namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
+﻿using UnityEngine;
+
+namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
 {
     public class BattleUnitBuf_Poison_Sa21341 : BattleUnitBuf
     {
@@ -10,17 +12,19 @@
         {
             _owner.TakeDamage(stack);
             if (stack - 2 > 0) stack -= 2;
-            else Destroy();
+            else _owner.bufListDetail.RemoveBuf(this);
         }
 
         public override void OnAddBuf(int addedStack)
         {
-            if (stack + addedStack > 10) stack = 10;
+            stack += addedStack;
+            stack = Mathf.Clamp(stack, 0, 10);
         }
 
         public override int GetDamageIncreaseRate()
         {
             return stack;
         }
+
     }
 }

@@ -16,7 +16,7 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Passives
 
         public override void OnSucceedAttack(BattleDiceBehavior behavior)
         {
-            if (_buff.stack < 10) _buff.stack++;
+            _buff.AddStacks(1);
         }
 
         public override void OnWaveStart()
