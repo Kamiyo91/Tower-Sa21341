@@ -54,13 +54,20 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
         {
             if (!_specialUsed) return;
             _specialUsed = false;
-            UnitUtil.AddNewUnitPlayerSide(floor, new UnitModel
+            var pos = -1;
+            if (BattleObjectManager.instance.GetList(Faction.Player).Find(x =>
+                    x.Book.BookId == new LorId(VortexModParameters.PackageId, unitId)) is var unit && unit != null)
+            {
+                pos = unit.index;
+                BattleObjectManager.instance.UnregisterUnit(unit);
+            }
+            UnitUtil.AddNewUnitPlayerSideCustomData(floor, new UnitModel
             {
                 Id = unitId,
                 Name = ModParameters.NameTexts
                     .FirstOrDefault(x => x.Key.Equals(unitNameId)).Value,
                 EmotionLevel = emotionLevel,
-                Pos = BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
+                Pos = pos != -1 ? pos : BattleObjectManager.instance.GetList(_model.Owner.faction).Count,
                 Sephirah = floor.Sephirah,
                 CustomPos = new XmlVector2 { x = 4, y = 0 }
             }, VortexModParameters.PackageId);

@@ -14,10 +14,12 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
             _floor = Singleton<StageController>.Instance.GetCurrentStageFloorModel();
         private BattleUnitBuf_Remembrance_Sa21341 _buff;
         private MechUtilEx _util;
+        private bool _unitSummoned;
 
 
         public override void OnWaveStart()
         {
+            _unitSummoned = false;
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 52));
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 69));
             _buff = new BattleUnitBuf_Remembrance_Sa21341();
@@ -39,9 +41,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
 
         public override void OnRoundEndTheLast()
         {
-            if(_util.CheckSpecialUsed()) _util.SummonSpecialUnit(_floor, 10000013, new LorId(VortexModParameters.PackageId,11),owner.emotionDetail.EmotionLevel);
+            if (!_util.CheckSpecialUsed()) return;
+            _unitSummoned = true;
+            _util.SummonSpecialUnit(_floor, 10000013, new LorId(VortexModParameters.PackageId,11),owner.emotionDetail.EmotionLevel);
         }
-
+        public bool GetSummonedStatus() => _unitSummoned;
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
             var cardId = curCard.card.GetID();

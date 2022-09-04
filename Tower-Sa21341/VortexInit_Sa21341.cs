@@ -41,6 +41,7 @@ namespace VortexLabyrinth_Sa21341
                 { "ZeroDefault_Sa21341", new List<LorId> { new LorId(VortexModParameters.PackageId, 10000008) } },
                 { "GreenDefault_Sa21341", new List<LorId> { new LorId(VortexModParameters.PackageId, 10000009) } },
                 { "KamiyoDefault_Sa21341", new List<LorId> { new LorId(VortexModParameters.PackageId, 10000012) } },
+                { "MioShadowDefault_Sa21341", new List<LorId> { new LorId(VortexModParameters.PackageId, 10000013) } },
                 {
                     "FragmentYellowDefault_Sa21341",
                     new List<LorId> { new LorId(VortexModParameters.PackageId, 10000002) }
@@ -76,6 +77,13 @@ namespace VortexLabyrinth_Sa21341
                         new LorId(VortexModParameters.PackageId, 39), new LorId(VortexModParameters.PackageId, 40)
                     },
                     new LorId(VortexModParameters.PackageId, 10000008)),
+                new Tuple<List<string>, List<LorId>, LorId>(new List<string> { "ShadowMioPage_Sa21341" },
+                    new List<LorId>
+                    {
+                        new LorId(VortexModParameters.PackageId, 54), new LorId(VortexModParameters.PackageId, 55),
+                        new LorId(VortexModParameters.PackageId, 56), new LorId(VortexModParameters.PackageId, 57),
+                    },
+                    new LorId(VortexModParameters.PackageId, 10000013)),
                 new Tuple<List<string>, List<LorId>, LorId>(new List<string> { "KamiyoPage_Sa21341" },
                     new List<LorId>
                     {
@@ -91,7 +99,8 @@ namespace VortexLabyrinth_Sa21341
                 new LorId(VortexModParameters.PackageId, 8), new LorId(VortexModParameters.PackageId, 9),
                 new LorId(VortexModParameters.PackageId, 17), new LorId(VortexModParameters.PackageId, 18),
                 new LorId(VortexModParameters.PackageId, 21), new LorId(VortexModParameters.PackageId, 28),
-                new LorId(VortexModParameters.PackageId, 33)
+                new LorId(VortexModParameters.PackageId, 33),new LorId(VortexModParameters.PackageId, 37),
+                new LorId(VortexModParameters.PackageId, 39),new LorId(VortexModParameters.PackageId, 40)
             });
             ModParameters.PersonalCardList.AddRange(new List<LorId>
             {
@@ -213,7 +222,8 @@ namespace VortexLabyrinth_Sa21341
                 { new LorId(VortexModParameters.PackageId, 10000005), new LorId(VortexModParameters.PackageId, 5) },
                 { new LorId(VortexModParameters.PackageId, 10000008), new LorId(VortexModParameters.PackageId, 7) },
                 { new LorId(VortexModParameters.PackageId, 10000009), new LorId(VortexModParameters.PackageId, 8) },
-                { new LorId(VortexModParameters.PackageId, 10000012), new LorId(VortexModParameters.PackageId, 14) }
+                { new LorId(VortexModParameters.PackageId, 10000012), new LorId(VortexModParameters.PackageId, 14) },
+                { new LorId(VortexModParameters.PackageId, 10000013), new LorId(VortexModParameters.PackageId, 11) }
             });
             ModParameters.BannedEmotionStages.AddRange(new Dictionary<LorId, bool>
             {
@@ -325,7 +335,9 @@ namespace VortexLabyrinth_Sa21341
                 new Tuple<LorId, List<LorId>>(new LorId(VortexModParameters.PackageId, 2),
                     new List<LorId> { new LorId(241001) }),
                 new Tuple<LorId, List<LorId>>(new LorId(VortexModParameters.PackageId, 3),
-                    new List<LorId> { new LorId(VortexModParameters.PackageId, 8) })
+                    new List<LorId> { new LorId(VortexModParameters.PackageId, 8) }),
+                new Tuple<LorId, List<LorId>>(new LorId(VortexModParameters.PackageId, 38),
+                    new List<LorId> { new LorId(VortexModParameters.PackageId, 33) })
             });
             ModParameters.MultiDeckPassive.AddRange(new List<Tuple<LorId, List<LorId>>>
             {
@@ -383,6 +395,17 @@ namespace VortexLabyrinth_Sa21341
                 new LorId(VortexModParameters.PackageId, 12), new LorId(VortexModParameters.PackageId, 13),
                 new LorId(VortexModParameters.PackageId, 22), new LorId(VortexModParameters.PackageId, 23),
                 new LorId(VortexModParameters.PackageId, 24)
+            });
+            ModParameters.KeypageIds.AddRange(new List<LorId>
+            {
+                new LorId(VortexModParameters.PackageId, 10000013)
+            });
+            ModParameters.CardsList.AddRange(new Dictionary<LorId, int>
+            {
+                {new LorId(VortexModParameters.PackageId,54),1},
+                {new LorId(VortexModParameters.PackageId,55),3},
+                {new LorId(VortexModParameters.PackageId,56),3},
+                {new LorId(VortexModParameters.PackageId,57),3}
             });
         }
     }

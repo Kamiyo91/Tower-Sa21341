@@ -137,6 +137,7 @@
     <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_ForgottenLink_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_MioShadowPlayer_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_MioShadow_Sa21341.cs" />
+    <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_MioSummonDesc_Sa21341.cs" />
     <Compile Include="Forgotten\MioShadow\Passives\PassiveAbility_SupportUnit_Sa21341.cs" />
     <Compile Include="Forgotten\Passives\PassiveAbility_ForgottenBlade_Sa21341.cs" />
     <Compile Include="Forgotten\WiltonShadow\Cards\DiceCardSelfAbility_HorizonSlash_Sa21341.cs" />
