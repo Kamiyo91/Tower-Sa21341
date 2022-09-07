@@ -50,9 +50,9 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
         {
             return _specialUsed;
         }
-        public virtual void SummonSpecialUnit(StageLibraryFloorModel floor,int unitId,LorId unitNameId,int emotionLevel)
+        public virtual BattleUnitModel SummonSpecialUnit(StageLibraryFloorModel floor,int unitId,LorId unitNameId,int emotionLevel)
         {
-            if (!_specialUsed) return;
+            if (!_specialUsed) return null;
             _specialUsed = false;
             var pos = -1;
             if (BattleObjectManager.instance.GetList(Faction.Player).Find(x =>
@@ -61,7 +61,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
                 pos = unit.index;
                 BattleObjectManager.instance.UnregisterUnit(unit);
             }
-            UnitUtil.AddNewUnitPlayerSideCustomData(floor, new UnitModel
+            return UnitUtil.AddNewUnitPlayerSideCustomData(floor, new UnitModel
             {
                 Id = unitId,
                 Name = ModParameters.NameTexts
