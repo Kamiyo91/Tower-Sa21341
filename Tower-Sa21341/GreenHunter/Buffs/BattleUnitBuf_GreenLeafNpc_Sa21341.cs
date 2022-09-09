@@ -18,12 +18,14 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
         {
             return -1;
         }
+
         public void AddStacks(int stacks)
         {
             stack += stacks;
             stack = Mathf.Clamp(stack, 0, 10);
             if (stack > 9 && _aura == null) CreateAura();
         }
+
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
             if (stack > 9) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
@@ -46,6 +48,7 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
                     if (component != null) component.Init(_owner.view);
                     _aura = gameObject;
                 }
+
                 if (_aura != null)
                     foreach (var particle in _aura.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -53,8 +56,8 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
                         main.startColor = new Color(0, 1, 0, 1);
                     }
             }
+
             SingletonBehavior<SoundEffectManager>.Instance.PlayClip("Buf/Effect_Index_Unlock");
         }
-
     }
 }

@@ -12,10 +12,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
     {
         private readonly StageLibraryFloorModel
             _floor = Singleton<StageController>.Instance.GetCurrentStageFloorModel();
+
         private BattleUnitBuf_Remembrance_Sa21341 _buff;
-        private MechUtilEx _util;
         private BattleUnitModel _summonedUnit;
         private bool _unitSummoned;
+        private MechUtilEx _util;
 
 
         public override void OnWaveStart()
@@ -45,9 +46,15 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
         {
             if (!_util.CheckSpecialUsed()) return;
             _unitSummoned = true;
-            _summonedUnit = _util.SummonSpecialUnit(_floor, 10000013, new LorId(VortexModParameters.PackageId, 11), owner.emotionDetail.EmotionLevel);
+            _summonedUnit = _util.SummonSpecialUnit(_floor, 10000013, new LorId(VortexModParameters.PackageId, 11),
+                owner.emotionDetail.EmotionLevel);
         }
-        public bool GetSummonedStatus() => _unitSummoned;
+
+        public bool GetSummonedStatus()
+        {
+            return _unitSummoned;
+        }
+
         public override void OnUseCard(BattlePlayingCardDataInUnitModel curCard)
         {
             var cardId = curCard.card.GetID();
@@ -69,6 +76,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Passives
                 _buff = new BattleUnitBuf_Remembrance_Sa21341();
                 owner.bufListDetail.AddBuf(_buff);
             }
+
             foreach (var unit in BattleObjectManager.instance.GetAliveList(owner.faction).Where(x => x != owner))
                 if (!unit.bufListDetail.HasBuf<BattleUnitBuf_AllyRemembrance_Sa21341>())
                     unit.bufListDetail.AddBuf(new BattleUnitBuf_AllyRemembrance_Sa21341());

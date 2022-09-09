@@ -7,8 +7,8 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
 {
     public class BattleUnitBuf_Remembrance_Sa21341 : BattleUnitBuf
     {
-        private Random _random;
         private int _count;
+        private Random _random;
         protected override string keywordId => "Remembrance_Sa21341";
         protected override string keywordIconId => "Forgotten_Sa21341";
 
@@ -55,6 +55,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             {
                 buffPlus.stack++;
             }
+
             _count++;
         }
 
@@ -73,6 +74,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
             _count = 0;
             AddStacks(-1);
         }
+
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
             if (stack > 24) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });

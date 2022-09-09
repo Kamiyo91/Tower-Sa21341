@@ -10,7 +10,9 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Dice
             if (target?.bufListDetail.GetActivatedBufList()
                     .FirstOrDefault(x => x is BattleUnitBuf_BlackFlame_Sa21341) is BattleUnitBuf_BlackFlame_Sa21341
                 buff)
+            {
                 buff.AddStacks(2);
+            }
             else
             {
                 var newBuff = new BattleUnitBuf_BlackFlame_Sa21341
@@ -20,5 +22,5 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Dice
                 target?.bufListDetail.AddBuf(newBuff);
             }
         }
-	}
+    }
 }

@@ -7,13 +7,15 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Buffs
     {
         protected override string keywordId => "BlackFlame_Sa21341";
         protected override string keywordIconId => "BlackFlame_Sa21341";
+
         public override void OnRoundStartAfter()
         {
             _owner.TakeDamage(stack * _owner.MaxHp / 100);
             EffectUtil.BurnEffect(_owner);
             AddStacks(-1);
-            if(stack == 0) _owner.bufListDetail.RemoveBuf(this);
+            if (stack == 0) _owner.bufListDetail.RemoveBuf(this);
         }
+
         public void AddStacks(int stacks)
         {
             stack += stacks;

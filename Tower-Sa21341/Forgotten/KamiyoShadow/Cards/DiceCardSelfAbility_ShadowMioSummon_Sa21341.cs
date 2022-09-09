@@ -12,8 +12,10 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
             return UnitUtil.SupportCharCheck(owner) == 1 && owner.bufListDetail.GetActivatedBufList()
                        .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341)?.stack > 9 &&
                    !owner.cardSlotDetail.cardAry.Exists(x =>
-                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 52) || x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 69));
+                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 52) ||
+                       x?.card?.GetID() == new LorId(VortexModParameters.PackageId, 69));
         }
+
         public override void OnUseCard()
         {
             var buff = owner.bufListDetail.GetActivatedBufList()

@@ -35,8 +35,8 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension
 
         public virtual void CheckPhaseSingle()
         {
-            if (_model.Owner.hp > _model.MechHp &&
-                BattleObjectManager.instance.GetAliveList(_model.Owner.faction).Count > 1 ||
+            if ((_model.Owner.hp > _model.MechHp &&
+                 BattleObjectManager.instance.GetAliveList(_model.Owner.faction).Count > 1) ||
                 _model.Phase > 0) return;
             _model.Phase++;
             _model.HasMechOnHp = false;

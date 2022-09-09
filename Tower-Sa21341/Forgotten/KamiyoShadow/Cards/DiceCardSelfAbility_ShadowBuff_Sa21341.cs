@@ -22,10 +22,12 @@ namespace VortexLabyrinth_Sa21341.Forgotten.KamiyoShadow.Cards
 
         private static void Activate(BattleUnitModel unit)
         {
-            if(!unit.bufListDetail.HasBuf<BattleUnitBuf_ShadowBuff_Sa21341>()) unit.bufListDetail.AddBuf(new BattleUnitBuf_ShadowBuff_Sa21341());
+            if (!unit.bufListDetail.HasBuf<BattleUnitBuf_ShadowBuff_Sa21341>())
+                unit.bufListDetail.AddBuf(new BattleUnitBuf_ShadowBuff_Sa21341());
             unit.bufListDetail.AddBuf(new BattleUnitBuf_0CardCostPlayer_Sa21341());
             if (unit.bufListDetail.GetActivatedBufList()
-                    .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) is BattleUnitBuf_Remembrance_Sa21341 buff)
+                    .FirstOrDefault(x => x is BattleUnitBuf_Remembrance_Sa21341) is BattleUnitBuf_Remembrance_Sa21341
+                buff)
                 buff.AddStacks(-15);
         }
 

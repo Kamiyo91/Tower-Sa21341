@@ -11,6 +11,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.MioShadow
         {
             _model = model;
         }
+
         public static int AlwaysAimToTheSlowestDice(BattleUnitModel target)
         {
             var speedValue = 999;
@@ -21,6 +22,7 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341.Extension.MioShadow
                 speedValue = dice.x.value;
                 finalTarget = dice.i;
             }
+
             return finalTarget;
         }
     }

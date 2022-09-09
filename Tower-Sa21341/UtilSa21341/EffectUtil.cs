@@ -14,16 +14,18 @@ namespace VortexLabyrinth_Sa21341.UtilSa21341
                 var count = 0;
                 foreach (var ps in pss)
                 {
-                    if(count != 2 && count != 0) ps.gameObject.SetActive(false); 
+                    if (count != 2 && count != 0) ps.gameObject.SetActive(false);
                     var main = ps.main;
                     main.startColor = new Color(0, 0, 0, 1);
                     count++;
                 }
+
                 gameObject.transform.parent = owner.view.camRotationFollower;
                 gameObject.transform.localPosition = Vector3.zero;
                 gameObject.transform.localScale = Vector3.one;
                 gameObject.transform.localRotation = Quaternion.identity;
             }
+
             SoundEffectPlayer.PlaySound("Buf/Effect_Burn");
         }
     }

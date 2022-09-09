@@ -25,6 +25,5 @@ namespace VortexLabyrinth_Sa21341.GreenHunter.Buffs
         {
             return stack;
         }
-
     }
 }

@@ -9,6 +9,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Buffs
         {
             stack = 0;
         }
+
         public override bool isAssimilation => true;
         public override int paramInBufDesc => 0;
         protected override string keywordId => "GodAura_Sa21341";
@@ -42,9 +43,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Buffs
                     particleSystem.gameObject.SetActive(false);
                     continue;
                 }
+
                 var main = particleSystem.main;
                 main.startColor = new Color(0, 0, 0, 1);
             }
+
             SoundEffectPlayer.PlaySound("Creature/Greed_MakeDiamond");
         }
 

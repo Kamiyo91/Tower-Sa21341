@@ -11,7 +11,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Cards
         {
             var buff = owner.bufListDetail.GetActivatedBufList()
                 .FirstOrDefault(x => x is BattleUnitBuf_BlueFlame_Sa21341);
-            if (buff == null || buff.stack <= 19) return;
+            if (buff == null || buff.stack <= 14) return;
             var dice = card.card.CreateDiceCardBehaviorList().FirstOrDefault();
             card.AddDice(dice);
             card.ApplyDiceStatBonus(DiceMatch.AllDice, new DiceStatBonus

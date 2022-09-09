@@ -75,6 +75,13 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
         public override void OnSucceedAttack(BattleDiceBehavior behavior)
         {
             _buff.AddStacks(1);
+            var target = behavior.card.target;
+            if (target == null) return;
+            if (target.bufListDetail.GetActivatedBufList().Find(x => x is BattleUnitBuf_BlueBurn_Sa21341) is
+                BattleUnitBuf_BlueBurn_Sa21341 buff)
+                buff.OnAddBuf(1);
+            else
+                target.bufListDetail.AddBuf(new BattleUnitBuf_BlueBurn_Sa21341());
         }
 
         public override void OnRoundStart()
@@ -85,6 +92,7 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
 
         public override void OnRoundStartAfter()
         {
+            ConvertBurnForAll();
             owner.personalEgoDetail.RemoveCard(new LorId(VortexModParameters.PackageId, 34));
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 34));
         }
@@ -122,6 +130,47 @@ namespace VortexLabyrinth_Sa21341.Zero.Passives
         public override void OnRoundEndTheLast_ignoreDead()
         {
             _util.ReturnFromEgoMap();
+        }
+
+        public void ConvertBurnForAll()
+        {
+            foreach (var unit in BattleObjectManager.instance.GetAliveList().Where(x =>
+                         x != owner && !x.passiveDetail.HasPassive<PassiveAbility_BlueBurn_Sa21341>()))
+            {
+                var existCheck = false;
+                var burnBuff = unit.bufListDetail.GetActivatedBufList().FirstOrDefault(x =>
+                    x.bufType == KeywordBuf.Burn && !(x is BattleUnitBuf_BlueBurn_Sa21341));
+                var burnNextBuff = unit.bufListDetail.GetReadyBufList().FirstOrDefault(x =>
+                    x.bufType == KeywordBuf.Burn && !(x is BattleUnitBuf_BlueBurn_Sa21341));
+                var blueBuff = unit.bufListDetail.GetActivatedBufList().FirstOrDefault(x =>
+                    x is BattleUnitBuf_BlueBurn_Sa21341);
+                if (blueBuff == null)
+                {
+                    existCheck = true;
+                    blueBuff = new BattleUnitBuf_BlueBurn_Sa21341
+                    {
+                        stack = 0
+                    };
+                }
+
+                if (burnBuff != null)
+                {
+                    blueBuff.stack += burnBuff.stack;
+                    unit.bufListDetail.RemoveBuf(burnBuff);
+                }
+
+                if (burnNextBuff != null)
+                {
+                    blueBuff.stack += burnNextBuff.stack;
+                    unit.bufListDetail.RemoveReadyBuf(burnNextBuff);
+                }
+
+                if (existCheck && blueBuff.stack != 0) unit.bufListDetail.AddBuf(blueBuff);
+                var passive = unit.passiveDetail.AddPassive(new LorId(VortexModParameters.PackageId, 41));
+                passive.Hide();
+                unit.passiveDetail.OnCreated();
+                passive.OnRoundStartAfter();
+            }
         }
     }
 }

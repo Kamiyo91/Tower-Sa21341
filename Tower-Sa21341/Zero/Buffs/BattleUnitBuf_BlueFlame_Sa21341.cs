@@ -6,8 +6,8 @@ namespace VortexLabyrinth_Sa21341.Zero.Buffs
 {
     public class BattleUnitBuf_BlueFlame_Sa21341 : BattleUnitBuf
     {
-        private Random _random;
         private int _count;
+        private Random _random;
         protected override string keywordId => "BlueFlame_Sa21341";
         protected override string keywordIconId => "BlueFlame_Sa21341";
 

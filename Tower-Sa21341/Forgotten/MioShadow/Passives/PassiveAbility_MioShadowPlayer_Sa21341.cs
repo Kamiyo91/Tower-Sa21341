@@ -11,10 +11,11 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
 {
     public class PassiveAbility_MioShadowPlayer_Sa21341 : PassiveAbilityBase
     {
+        private bool _staggered;
         private MechUtil_MioShadow _util;
         public override bool isImmortal => true;
         public override bool isInvincibleBp => true;
-        private bool _staggered;
+
         public override void OnWaveStart()
         {
             if (CheckLife()) return;
@@ -35,11 +36,14 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
             var mainShadowUnit = BattleObjectManager.instance.GetAliveList(owner.faction)
                 .FirstOrDefault(x => x.Book.BookId == new LorId(VortexModParameters.PackageId, 10000012));
             if (mainShadowUnit?.passiveDetail.PassiveList.Find(x =>
-                    x is PassiveAbility_ForgottenEgoPlayer_Sa21341) is PassiveAbility_ForgottenEgoPlayer_Sa21341 mainShadowPassive)
-                if (mainShadowPassive.GetSummonedStatus()) return false;
+                    x is PassiveAbility_ForgottenEgoPlayer_Sa21341) is PassiveAbility_ForgottenEgoPlayer_Sa21341
+                mainShadowPassive)
+                if (mainShadowPassive.GetSummonedStatus())
+                    return false;
             owner.Die();
             return true;
         }
+
         public override bool BeforeTakeDamage(BattleUnitModel attacker, int dmg)
         {
             _util.SurviveCheck(dmg);
@@ -58,11 +62,13 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
             _staggered = false;
             owner.bufListDetail.AddBuf(new BattleUnitBuf_KamiyoLockedUnit());
         }
+
         public override int ChangeTargetSlot(BattleDiceCardModel card, BattleUnitModel target, int currentSlot,
             int targetSlot, bool teamkill)
         {
             return MechUtil_MioShadow.AlwaysAimToTheSlowestDice(target);
         }
+
         public override void AfterTakeDamage(BattleUnitModel attacker, int dmg)
         {
             if (owner.hp < 2)
@@ -73,6 +79,7 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
         {
             owner.RecoverHP(owner.MaxHp);
         }
+
         public override void OnBreakState()
         {
             _staggered = true;
@@ -80,12 +87,15 @@ namespace VortexLabyrinth_Sa21341.Forgotten.MioShadow.Passives
 
         public override void OnRoundEndTheLast_ignoreDead()
         {
-            if (!CheckLife() && owner.IsDead() && BattleObjectManager.instance.GetAliveList(owner.faction).Any(x => x.Book.BookId == new LorId(VortexModParameters.PackageId, 10000012))) owner.Revive(owner.MaxHp);
+            if (!CheckLife() && owner.IsDead() && BattleObjectManager.instance.GetAliveList(owner.faction)
+                    .Any(x => x.Book.BookId == new LorId(VortexModParameters.PackageId, 10000012)))
+                owner.Revive(owner.MaxHp);
         }
 
         public override void OnDieOtherUnit(BattleUnitModel unit)
         {
-            if (unit.faction == owner.faction && unit.Book.BookId == new LorId(VortexModParameters.PackageId, 10000012)) owner.Die();
+            if (unit.faction == owner.faction &&
+                unit.Book.BookId == new LorId(VortexModParameters.PackageId, 10000012)) owner.Die();
         }
     }
 }
