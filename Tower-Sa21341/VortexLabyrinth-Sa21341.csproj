@@ -178,6 +178,7 @@
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_MassShield_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_MassHeal_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_RedShield_Sa21341.cs" />
+    <Compile Include="Miyu\Cards\DiceCardSelfAbility_SummonMiyu_Sa21341.cs" />
     <Compile Include="Miyu\Cards\DiceCardSelfAbility_YellowShield_Sa21341.cs" />
     <Compile Include="Miyu\DiceCardSelfAbility_MiyuCommonCard_Sa21341.cs" />
     <Compile Include="Miyu\DiceEffects\DiceAttackEffect_RedShield_Sa21341.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Miyu\Passives\PassiveAbility_DistortionSense_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_Healer_Sa21341.cs" />
     <Compile Include="Miyu\Passives\PassiveAbility_Miyu_Sa21341.cs" />
+    <Compile Include="Miyu\Passives\PassiveAbility_SummonMiyu_Sa21341.cs" />
     <Compile Include="PassiveAbility_LoneFixer_Sa21341.cs" />
     <Compile Include="Sae\Buffs\BattleUnitBuf_DistortionBlessing_Sa21341.cs" />
     <Compile Include="Sae\Buffs\BattleUnitBuf_GeneralAtkStance_Sa21341.cs" />

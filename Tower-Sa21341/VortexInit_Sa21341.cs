@@ -108,7 +108,8 @@ namespace VortexLabyrinth_Sa21341
                 new LorId(VortexModParameters.PackageId, 10), new LorId(VortexModParameters.PackageId, 11),
                 new LorId(VortexModParameters.PackageId, 33), new LorId(VortexModParameters.PackageId, 34),
                 new LorId(VortexModParameters.PackageId, 49), new LorId(VortexModParameters.PackageId, 50),
-                new LorId(VortexModParameters.PackageId, 53), new LorId(VortexModParameters.PackageId, 69)
+                new LorId(VortexModParameters.PackageId, 53), new LorId(VortexModParameters.PackageId, 69),
+                new LorId(VortexModParameters.PackageId, 53), new LorId(VortexModParameters.PackageId, 70)
             });
             ModParameters.EgoPersonalCardList.AddRange(new List<LorId>
             {
