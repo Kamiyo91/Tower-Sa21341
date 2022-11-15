@@ -6,7 +6,7 @@ namespace VortexTower.Forgotten.Effects
     {
         public override void Initialize(BattleUnitView self, BattleUnitView target, float destroyTime)
         {
-            SetParameters(VortexModParameters.Path, 0.7f, 0.275f, 2.5f);
+            SetParameters(VortexModParameters.Path, 0.7f, 0.325f, 2.5f);
             base.Initialize(self, target, destroyTime);
         }
     }
