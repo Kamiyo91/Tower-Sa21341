@@ -99,14 +99,11 @@ namespace VortexTower
                 new CardOptions(70, CardOption.EgoPersonal),
                 new CardOptions(62, CardOption.EgoPersonal),
                 new CardOptions(71, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.gray, customIconColor: Color.gray,
-                        useHSVFilter: false)),
+                    cardColorOptions: new CardColorOptions(Color.gray,iconColor:HSVColors.Black)),
                 new CardOptions(67, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.gray, customIconColor: Color.gray,
-                        useHSVFilter: false)),
+                    cardColorOptions: new CardColorOptions(Color.gray,iconColor:HSVColors.Black)),
                 new CardOptions(68, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.gray, customIconColor: Color.gray,
-                        useHSVFilter: false))
+                    cardColorOptions: new CardColorOptions(Color.gray,iconColor:HSVColors.Black))
             });
         }
 
