@@ -244,7 +244,11 @@ namespace VortexTower
                             VortexModParameters.ZeroStoryModel, VortexModParameters.ForgottenStoryModel
                         }),
                     bannedEmotionLevel: true,
-                    stageColorOptions: new StageColorOptions(Color.gray, Color.gray)),
+                    stageColorOptions: new StageColorOptions(Color.gray, Color.gray),
+                    stageRewardOptions: new RewardOptions(new Dictionary<LorId, int>
+                    {
+                        { new LorId(VortexModParameters.PackageId, 5), 5 }
+                    }, messageId: "KamiyoDrop_Sa21341")),
                 new StageOptions(8,
                     stageColorOptions: new StageColorOptions(Color.gray, Color.gray),
                     stageRewardOptions: new RewardOptions(new Dictionary<LorId, int>
