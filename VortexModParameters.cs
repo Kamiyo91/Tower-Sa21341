@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BigDLL4221.BaseClass;
 using BigDLL4221.Models;
 using LOR_XML;
 using UnityEngine;
@@ -228,5 +229,17 @@ namespace VortexTower
                 {
                     { new LorId(VortexModParameters.PackageId, 60), VortexModParameters.ZeroMap }
                 }));
+
+        public MechUtilBase GreenGuardianPlayerUtil = new MechUtilBase(new MechUtilBaseModel(survive: true,
+            egoMaps: new Dictionary<LorId, MapModel>
+                { { new LorId(VortexModParameters.PackageId, 87), VortexModParameters.ZeroMap } },
+            personalCards: new Dictionary<LorId, PersonalCardOptions>
+            {
+                { new LorId(VortexModParameters.PackageId, 87), new PersonalCardOptions() }
+            },
+            additionalStartDraw: 2,
+            recoverToHp: 41,
+            permanentBuffList: new List<PermanentBuffOptions>
+                { new PermanentBuffOptions(new BattleUnitBuf_GreenLeaf_Sa21341()) }));
     }
 }

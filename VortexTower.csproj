@@ -141,7 +141,11 @@
     <Compile Include="Zero\GreenHunter\Buffs\BattleUnitBuf_Poison_Sa21341.cs" />
     <Compile Include="Zero\GreenHunter\Cards\DiceCardSelfAbility_GreenGuardianMassAttack_Sa21341.cs" />
     <Compile Include="Zero\GreenHunter\NpcMechUtil_GreenGuardian.cs" />
+    <Compile Include="Zero\GreenHunter\Passives\PassiveAbility_AnOldFriend_Sa21341.cs" />
+    <Compile Include="Zero\GreenHunter\Passives\PassiveAbility_GreenGuardianPlayer_Sa21341.cs" />
     <Compile Include="Zero\GreenHunter\Passives\PassiveAbility_GreenGuardian_Sa21341.cs" />
+    <Compile Include="Zero\GreenHunter\Passives\PassiveAbility_GreenShotgun_Sa21341.cs" />
+    <Compile Include="Zero\GreenHunter\Passives\PassiveAbility_GuardianPoisonPlayer_Sa21341.cs" />
     <Compile Include="Zero\GreenHunter\Passives\PassiveAbility_GuardianPoison_Sa21341.cs" />
     <Compile Include="Miyu\Aztec\Cards\DiceCardSelfAbility_AztecShield_Sa21341.cs" />
     <Compile Include="Miyu\Aztec\Passives\PassiveAbility_AztecShield_Sa21341.cs" />

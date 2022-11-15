@@ -14,6 +14,11 @@ namespace VortexTower.Zero.GreenHunter.Buffs
             return stack;
         }
 
+        public override int GetCardCostAdder(BattleDiceCardModel card)
+        {
+            return stack > 9 ? -1 : base.GetCardCostAdder(card);
+        }
+
         public override void OnAddBuf(int addedStack)
         {
             stack += addedStack;
