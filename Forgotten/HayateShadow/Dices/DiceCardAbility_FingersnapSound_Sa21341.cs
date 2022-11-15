@@ -16,7 +16,7 @@ namespace VortexTower.Forgotten.HayateShadow.Dices
             foreach (var unit in BattleObjectManager.instance
                          .GetAliveList(UnitUtil.ReturnOtherSideFaction(owner.faction))
                          .Where(x => !x.bufListDetail.HasBuf<BattleUnitBuf_YellowShield_Sa21341>()))
-                unit.TakeDamage(999);
+                unit.Die();
         }
     }
 }

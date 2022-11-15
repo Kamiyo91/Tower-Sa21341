@@ -99,11 +99,11 @@ namespace VortexTower
                 new CardOptions(70, CardOption.EgoPersonal),
                 new CardOptions(62, CardOption.EgoPersonal),
                 new CardOptions(71, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.gray,iconColor:HSVColors.Black)),
+                    cardColorOptions: new CardColorOptions(Color.gray, iconColor: HSVColors.Black)),
                 new CardOptions(67, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.gray,iconColor:HSVColors.Black)),
+                    cardColorOptions: new CardColorOptions(Color.gray, iconColor: HSVColors.Black)),
                 new CardOptions(68, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.gray,iconColor:HSVColors.Black))
+                    cardColorOptions: new CardColorOptions(Color.gray, iconColor: HSVColors.Black))
             });
         }
 
@@ -246,7 +246,11 @@ namespace VortexTower
                     bannedEmotionLevel: true,
                     stageColorOptions: new StageColorOptions(Color.gray, Color.gray)),
                 new StageOptions(8,
-                    stageColorOptions: new StageColorOptions(Color.gray, Color.gray))
+                    stageColorOptions: new StageColorOptions(Color.gray, Color.gray),
+                    stageRewardOptions: new RewardOptions(new Dictionary<LorId, int>
+                    {
+                        { new LorId(VortexModParameters.PackageId, 5), 5 }
+                    }, messageId: "KamiyoDrop_Sa21341"))
             });
         }
 
