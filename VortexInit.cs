@@ -232,38 +232,39 @@ namespace VortexTower
             ModParameters.StageOptions.Add(VortexModParameters.PackageId, new List<StageOptions>
             {
                 new StageOptions(1,
-                    preBattleOptions: new PreBattleOptions(new List<SephirahType> { SephirahType.Keter },
-                        battleType: PreBattleType.CustomUnits,
-                        unitModels: new List<UnitModel> { VortexModParameters.SaeStoryModel }),
-                    bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
+                    preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
+                        {
+                            VortexModParameters.SaeStoryModel,
+                        }} },
+                        battleType: PreBattleType.CustomUnits),
+                        bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
                 new StageOptions(2, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
                 new StageOptions(3,
-                    preBattleOptions: new PreBattleOptions(new List<SephirahType> { SephirahType.Keter },
-                        battleType: PreBattleType.CustomUnits,
-                        unitModels: new List<UnitModel>
-                            { VortexModParameters.SaeStoryModelMiyuStage, VortexModParameters.MiyuStoryModel }),
-                    bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.yellow, Color.yellow)),
+                    preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
+                        {
+                            VortexModParameters.SaeStoryModelMiyuStage, VortexModParameters.MiyuStoryModel
+                        }} },
+                        battleType: PreBattleType.CustomUnits),
+                        bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.yellow, Color.yellow)),
                 new StageOptions(4, stageColorOptions: new StageColorOptions(Color.yellow, Color.yellow)),
                 new StageOptions(5, preBattleOptions: new PreBattleOptions(
-                        new List<SephirahType> { SephirahType.Keter },
-                        battleType: PreBattleType.CustomUnits,
-                        unitModels: new List<UnitModel>
+                        new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
                         {
                             VortexModParameters.SaeStoryModelZeroStage, VortexModParameters.MiyuStoryModel,
                             VortexModParameters.ZeroStoryModel
-                        }),
-                    bannedEmotionLevel: true,
+                        }} },
+                        battleType: PreBattleType.CustomUnits),
+                        bannedEmotionLevel: true,
                     stageColorOptions: new StageColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new StageOptions(6,
                     stageColorOptions: new StageColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new StageOptions(7, preBattleOptions: new PreBattleOptions(
-                        new List<SephirahType> { SephirahType.Keter },
-                        battleType: PreBattleType.CustomUnits,
-                        unitModels: new List<UnitModel>
+                        new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
                         {
                             VortexModParameters.SaeStoryModelZeroStage, VortexModParameters.MiyuStoryModel,
                             VortexModParameters.ZeroStoryModel, VortexModParameters.ForgottenStoryModel
-                        }),
+                        }} },
+                        battleType: PreBattleType.CustomUnits),
                     bannedEmotionLevel: true,
                     stageColorOptions: new StageColorOptions(Color.gray, Color.gray),
                     stageRewardOptions: new RewardOptions(new Dictionary<LorId, int>
