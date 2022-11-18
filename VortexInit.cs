@@ -293,7 +293,10 @@ namespace VortexTower
                     passiveColorOptions: new PassiveColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new PassiveOptions(2, false,
                     cannotBeUsedWithPassives: new List<LorId> { new LorId(241301), new LorId(241001) }),
-                new PassiveOptions(5, isMultiDeck: true,
+                new PassiveOptions(5, isMultiDeck: true,chainReleasePassives:new List<LorId>
+                {
+                    new LorId(VortexModParameters.PackageId,3)
+                },
                     multiDeckOptions: new MultiDeckOptions(new List<string>
                         { "AttackStance_Sa21341", "DefenseStance_Sa21341" })),
                 new PassiveOptions(35, false),
