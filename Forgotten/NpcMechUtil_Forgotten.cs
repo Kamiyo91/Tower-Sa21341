@@ -12,7 +12,6 @@ namespace VortexTower.Forgotten
     {
         private BattleUnitModel _additionalUnit;
         private int _count;
-        public new StageLibraryFloorModel Floor = Singleton<StageController>.Instance.GetCurrentStageFloorModel();
 
         public NpcMechUtil_Forgotten(NpcMechUtilBaseModel model) : base(model)
         {
@@ -72,23 +71,20 @@ namespace VortexTower.Forgotten
             switch (phase)
             {
                 case 0:
-                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(Floor,
-                        new UnitModel(7, VortexModParameters.PackageId, 7),
-                        BattleObjectManager.instance.GetList(Model.Owner.faction).Count, playerSide: false,
+                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(new UnitModel(7, VortexModParameters.PackageId, 7),
+                        BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
                         emotionLevel: 1);
                     UnitUtil.RefreshCombatUI();
                     break;
                 case 1:
-                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(Floor,
-                        new UnitModel(8, VortexModParameters.PackageId, 8),
-                        BattleObjectManager.instance.GetList(Model.Owner.faction).Count, playerSide: false,
+                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(new UnitModel(8, VortexModParameters.PackageId, 8),
+                        BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
                         emotionLevel: 2);
                     UnitUtil.RefreshCombatUI();
                     break;
                 case 2:
-                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(Floor,
-                        new UnitModel(9, VortexModParameters.PackageId, 9),
-                        BattleObjectManager.instance.GetList(Model.Owner.faction).Count, playerSide: false,
+                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(new UnitModel(9, VortexModParameters.PackageId, 9),
+                        BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
                         emotionLevel: 3);
                     UnitUtil.RefreshCombatUI();
                     break;
@@ -103,12 +99,15 @@ namespace VortexTower.Forgotten
                 _additionalUnit = null;
             }
 
-            UnitUtil.AddNewUnitWithDefaultData(Floor, new UnitModel(7, VortexModParameters.PackageId, 7),
-                BattleObjectManager.instance.GetList(Model.Owner.faction).Count, playerSide: false, emotionLevel: 5);
-            UnitUtil.AddNewUnitWithDefaultData(Floor, new UnitModel(8, VortexModParameters.PackageId, 8),
-                BattleObjectManager.instance.GetList(Model.Owner.faction).Count, playerSide: false, emotionLevel: 5);
-            UnitUtil.AddNewUnitWithDefaultData(Floor, new UnitModel(9, VortexModParameters.PackageId, 9),
-                BattleObjectManager.instance.GetList(Model.Owner.faction).Count, playerSide: false, emotionLevel: 5);
+            UnitUtil.AddNewUnitWithDefaultData(new UnitModel(7, VortexModParameters.PackageId, 7),
+                BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
+                emotionLevel: 5);
+            UnitUtil.AddNewUnitWithDefaultData(new UnitModel(8, VortexModParameters.PackageId, 8),
+                BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
+                emotionLevel: 5);
+            UnitUtil.AddNewUnitWithDefaultData(new UnitModel(9, VortexModParameters.PackageId, 9),
+                BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
+                emotionLevel: 5);
             UnitUtil.RefreshCombatUI();
         }
 

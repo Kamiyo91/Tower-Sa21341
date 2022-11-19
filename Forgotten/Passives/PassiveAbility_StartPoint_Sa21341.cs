@@ -6,13 +6,13 @@ namespace VortexTower.Forgotten.Passives
 {
     public class PassiveAbility_StartPoint_Sa21341 : PassiveAbilityBase
     {
-        public StageLibraryFloorModel Floor = Singleton<StageController>.Instance.GetCurrentStageFloorModel();
+        public override bool isImmortal => true;
 
         public override void OnRoundEndTheLast()
         {
             BattleObjectManager.instance.UnregisterUnit(owner);
-            UnitUtil.AddNewUnitWithDefaultData(Floor, new UnitModel(10, VortexModParameters.PackageId, 10), 0,
-                playerSide: false, emotionLevel: 1);
+            UnitUtil.AddNewUnitWithDefaultData(new UnitModel(10, VortexModParameters.PackageId, 10), 0,
+                unitSide: owner.faction, emotionLevel: 1);
             UnitUtil.RefreshCombatUI();
         }
 

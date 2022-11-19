@@ -107,20 +107,20 @@ namespace VortexTower
                     cardColorOptions: new CardColorOptions(Color.gray, iconColor: HSVColors.Black)),
                 new CardOptions(46, CardOption.OnlyPage, new List<string> { "GreenHunterPage_Sa21341" },
                     new List<LorId> { new LorId(VortexModParameters.PackageId, 10000006) },
-                    cardColorOptions: new CardColorOptions(new Color(0.6f,1f,0.6f),
-                        customIconColor: new Color(0.6f,1f,0.6f), useHSVFilter: false)),
+                    cardColorOptions: new CardColorOptions(new Color(0.6f, 1f, 0.6f),
+                        customIconColor: new Color(0.6f, 1f, 0.6f), useHSVFilter: false)),
                 new CardOptions(47, CardOption.OnlyPage, new List<string> { "GreenHunterPage_Sa21341" },
                     new List<LorId> { new LorId(VortexModParameters.PackageId, 10000006) },
-                    cardColorOptions: new CardColorOptions(new Color(0.6f,1f,0.6f),
-                        customIconColor: new Color(0.6f,1f,0.6f), useHSVFilter: false)),
+                    cardColorOptions: new CardColorOptions(new Color(0.6f, 1f, 0.6f),
+                        customIconColor: new Color(0.6f, 1f, 0.6f), useHSVFilter: false)),
                 new CardOptions(48, CardOption.OnlyPage, new List<string> { "GreenHunterPage_Sa21341" },
                     new List<LorId> { new LorId(VortexModParameters.PackageId, 10000006) },
-                    cardColorOptions: new CardColorOptions(new Color(0.6f,1f,0.6f),
-                        customIconColor: new Color(0.6f,1f,0.6f), useHSVFilter: false)),
+                    cardColorOptions: new CardColorOptions(new Color(0.6f, 1f, 0.6f),
+                        customIconColor: new Color(0.6f, 1f, 0.6f), useHSVFilter: false)),
                 new CardOptions(49, CardOption.OnlyPage, new List<string> { "GreenHunterPage_Sa21341" },
                     new List<LorId> { new LorId(VortexModParameters.PackageId, 10000006) },
-                    cardColorOptions: new CardColorOptions(new Color(0.6f,1f,0.6f),
-                        customIconColor: new Color(0.6f,1f,0.6f), useHSVFilter: false))
+                    cardColorOptions: new CardColorOptions(new Color(0.6f, 1f, 0.6f),
+                        customIconColor: new Color(0.6f, 1f, 0.6f), useHSVFilter: false))
             });
         }
 
@@ -160,7 +160,7 @@ namespace VortexTower
                     keypageColorOptions: new KeypageColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new KeypageOptions(5,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 5),
-                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f,1f,0.6f), new Color(0.6f,1f,0.6f))),
+                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f, 1f, 0.6f), new Color(0.6f, 1f, 0.6f))),
                 new KeypageOptions(6,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 6),
                     keypageColorOptions: new KeypageColorOptions(Color.gray, Color.gray)),
@@ -187,7 +187,7 @@ namespace VortexTower
                     keypageColorOptions: new KeypageColorOptions(Color.gray, Color.gray)),
                 new KeypageOptions(10000006,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 12),
-                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f,1f,0.6f), new Color(0.6f,1f,0.6f))),
+                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f, 1f, 0.6f), new Color(0.6f, 1f, 0.6f))),
                 new KeypageOptions(10000902,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 4),
                     keypageColorOptions: new KeypageColorOptions(Color.yellow, Color.yellow)),
@@ -232,38 +232,58 @@ namespace VortexTower
             ModParameters.StageOptions.Add(VortexModParameters.PackageId, new List<StageOptions>
             {
                 new StageOptions(1,
-                    preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
+                    preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType, List<UnitModel>>
                         {
-                            VortexModParameters.SaeStoryModel,
-                        }} },
+                            {
+                                SephirahType.Keter, new List<UnitModel>
+                                {
+                                    VortexModParameters.SaeStoryModel
+                                }
+                            }
+                        },
                         battleType: PreBattleType.CustomUnits),
-                        bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
+                    bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
                 new StageOptions(2, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
                 new StageOptions(3,
-                    preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
+                    preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType, List<UnitModel>>
                         {
-                            VortexModParameters.SaeStoryModelMiyuStage, VortexModParameters.MiyuStoryModel
-                        }} },
+                            {
+                                SephirahType.Keter, new List<UnitModel>
+                                {
+                                    VortexModParameters.SaeStoryModelMiyuStage, VortexModParameters.MiyuStoryModel
+                                }
+                            }
+                        },
                         battleType: PreBattleType.CustomUnits),
-                        bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.yellow, Color.yellow)),
+                    bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.yellow, Color.yellow)),
                 new StageOptions(4, stageColorOptions: new StageColorOptions(Color.yellow, Color.yellow)),
                 new StageOptions(5, preBattleOptions: new PreBattleOptions(
-                        new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
+                        new Dictionary<SephirahType, List<UnitModel>>
                         {
-                            VortexModParameters.SaeStoryModelZeroStage, VortexModParameters.MiyuStoryModel,
-                            VortexModParameters.ZeroStoryModel
-                        }} },
+                            {
+                                SephirahType.Keter, new List<UnitModel>
+                                {
+                                    VortexModParameters.SaeStoryModelZeroStage, VortexModParameters.MiyuStoryModel,
+                                    VortexModParameters.ZeroStoryModel
+                                }
+                            }
+                        },
                         battleType: PreBattleType.CustomUnits),
-                        bannedEmotionLevel: true,
+                    bannedEmotionLevel: true,
                     stageColorOptions: new StageColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new StageOptions(6,
                     stageColorOptions: new StageColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new StageOptions(7, preBattleOptions: new PreBattleOptions(
-                        new Dictionary<SephirahType,List<UnitModel>> { {SephirahType.Keter,new List<UnitModel>
+                        new Dictionary<SephirahType, List<UnitModel>>
                         {
-                            VortexModParameters.SaeStoryModelZeroStage, VortexModParameters.MiyuStoryModel,
-                            VortexModParameters.ZeroStoryModel, VortexModParameters.ForgottenStoryModel
-                        }} },
+                            {
+                                SephirahType.Keter, new List<UnitModel>
+                                {
+                                    VortexModParameters.SaeStoryModelZeroStage, VortexModParameters.MiyuStoryModel,
+                                    VortexModParameters.ZeroStoryModel, VortexModParameters.ForgottenStoryModel
+                                }
+                            }
+                        },
                         battleType: PreBattleType.CustomUnits),
                     bannedEmotionLevel: true,
                     stageColorOptions: new StageColorOptions(Color.gray, Color.gray),
@@ -288,15 +308,15 @@ namespace VortexTower
                 new PassiveOptions(9, false, passiveColorOptions: new PassiveColorOptions(Color.yellow, Color.yellow)),
                 new PassiveOptions(33, false, passiveColorOptions: new PassiveColorOptions(Color.gray, Color.gray)),
                 new PassiveOptions(23, false,
-                    passiveColorOptions: new PassiveColorOptions(new Color(0.6f,1f,0.6f), new Color(0.6f,1f,0.6f))),
+                    passiveColorOptions: new PassiveColorOptions(new Color(0.6f, 1f, 0.6f), new Color(0.6f, 1f, 0.6f))),
                 new PassiveOptions(17, false,
                     passiveColorOptions: new PassiveColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new PassiveOptions(2, false,
                     cannotBeUsedWithPassives: new List<LorId> { new LorId(241301), new LorId(241001) }),
-                new PassiveOptions(5, isMultiDeck: true,chainReleasePassives:new List<LorId>
-                {
-                    new LorId(VortexModParameters.PackageId,3)
-                },
+                new PassiveOptions(5, isMultiDeck: true, chainReleasePassives: new List<LorId>
+                    {
+                        new LorId(VortexModParameters.PackageId, 3)
+                    },
                     multiDeckOptions: new MultiDeckOptions(new List<string>
                         { "AttackStance_Sa21341", "DefenseStance_Sa21341" })),
                 new PassiveOptions(35, false),
@@ -308,7 +328,7 @@ namespace VortexTower
                 new PassiveOptions(12,
                     passiveColorOptions: new PassiveColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new PassiveOptions(19,
-                    passiveColorOptions: new PassiveColorOptions(new Color(0.6f,1f,0.6f), new Color(0.6f,1f,0.6f))),
+                    passiveColorOptions: new PassiveColorOptions(new Color(0.6f, 1f, 0.6f), new Color(0.6f, 1f, 0.6f))),
                 new PassiveOptions(31, passiveColorOptions: new PassiveColorOptions(Color.gray, Color.gray)),
                 new PassiveOptions(30, passiveColorOptions: new PassiveColorOptions(Color.gray, Color.gray)),
                 new PassiveOptions(27, passiveColorOptions: new PassiveColorOptions(Color.gray, Color.gray)),
