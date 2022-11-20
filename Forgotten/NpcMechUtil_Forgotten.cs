@@ -71,19 +71,22 @@ namespace VortexTower.Forgotten
             switch (phase)
             {
                 case 0:
-                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(new UnitModel(7, VortexModParameters.PackageId, 7),
+                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(
+                        new UnitModel(7, VortexModParameters.PackageId, 7),
                         BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
                         emotionLevel: 1);
                     UnitUtil.RefreshCombatUI();
                     break;
                 case 1:
-                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(new UnitModel(8, VortexModParameters.PackageId, 8),
+                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(
+                        new UnitModel(8, VortexModParameters.PackageId, 8),
                         BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
                         emotionLevel: 2);
                     UnitUtil.RefreshCombatUI();
                     break;
                 case 2:
-                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(new UnitModel(9, VortexModParameters.PackageId, 9),
+                    _additionalUnit = UnitUtil.AddNewUnitWithDefaultData(
+                        new UnitModel(9, VortexModParameters.PackageId, 9),
                         BattleObjectManager.instance.GetList(Model.Owner.faction).Count, unitSide: Model.Owner.faction,
                         emotionLevel: 3);
                     UnitUtil.RefreshCombatUI();
