@@ -210,7 +210,7 @@ namespace VortexTower
                     customIconSpriteId: VortexModParameters.PackageId, credenzaBooksId: new List<int>
                     {
                         10000001, 10000003, 10000004, 10000005
-                    }));
+                    },bookDataColor:new CredenzaColorOptions(Color.red, Color.red)));
         }
 
         private static void OnInitSprites()
