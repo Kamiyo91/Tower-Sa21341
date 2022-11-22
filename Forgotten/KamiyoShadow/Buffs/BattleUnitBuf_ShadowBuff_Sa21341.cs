@@ -1,13 +1,10 @@
-﻿using Battle.CreatureEffect;
-using Sound;
+﻿using Sound;
+using UnityEngine;
 
 namespace VortexTower.Forgotten.KamiyoShadow.Buffs
 {
     public class BattleUnitBuf_ShadowBuff_Sa21341 : BattleUnitBuf
     {
-        private const string Path = "6/RedHood_Emotion_Aura";
-        private CreatureEffect _aura;
-
         public BattleUnitBuf_ShadowBuff_Sa21341()
         {
             stack = 0;
@@ -28,11 +25,16 @@ namespace VortexTower.Forgotten.KamiyoShadow.Buffs
         private void PlayChangingEffect(BattleUnitModel owner)
         {
             owner.view.charAppearance.ChangeMotion(ActionDetail.Default);
-            if (_aura == null)
+            owner.view.charAppearance.ChangeMotion(ActionDetail.Default);
+            var aura = SingletonBehavior<DiceEffectManager>.Instance.CreateNewFXCreatureEffect(
+                "2_Y/FX_IllusionCard_2_Y_Charge", 1f, _owner.view, _owner.view);
+            foreach (var particle in aura.gameObject.GetComponentsInChildren<ParticleSystem>())
             {
-                _aura = SingletonBehavior<DiceEffectManager>.Instance.CreateCreatureEffect(Path, 1f, owner.view,
-                    owner.view);
-                _aura.gameObject.AddComponent<AuraColor>();
+                if (particle.gameObject.name.Contains("Burn"))
+                    particle.gameObject.AddComponent<AuraColor>();
+                if (!particle.gameObject.name.Equals("Main") && !particle.gameObject.name.Contains("Charge") &&
+                    !particle.gameObject.name.Contains("Scaner_holo_distortion")) continue;
+                particle.gameObject.SetActive(false);
             }
 
             SingletonBehavior<SoundEffectManager>.Instance.PlayClip("Battle/Kali_Change");
