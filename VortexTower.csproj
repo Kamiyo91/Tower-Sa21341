@@ -34,8 +34,9 @@
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Mods\PurpleMod\Assemblies\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="1BigDLL4221">
-      <HintPath>..\..\NewDLL\bin\Debug\1BigDLL4221.dll</HintPath>
+    <Reference Include="1BigDLL4221, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NewDLL\bin\Release\1BigDLL4221.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Assembly-CSharp.dll</HintPath>
