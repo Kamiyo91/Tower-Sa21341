@@ -20,6 +20,7 @@ namespace VortexTower
             CardUtil.ChangeCardItem(ItemXmlDataList.instance, VortexModParameters.PackageId);
             PassiveUtil.ChangePassiveItem(VortexModParameters.PackageId);
             LocalizeUtil.AddGlobalLocalize(VortexModParameters.PackageId);
+            ArtUtil.MakeCustomBook(VortexModParameters.PackageId);
             ArtUtil.PreLoadBufIcons();
             LocalizeUtil.RemoveError();
             CardUtil.InitKeywordsList(new List<Assembly> { Assembly.GetExecutingAssembly() });
@@ -34,6 +35,7 @@ namespace VortexTower
                 Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
             ModParameters.Path.Add(VortexModParameters.PackageId, VortexModParameters.Path);
             ModParameters.DefaultKeyword.Add(VortexModParameters.PackageId, "SaeModPage_Sa21341");
+            ModParameters.Assemblies.Add(Assembly.GetExecutingAssembly());
             OnInitSprites();
             OnInitSkins();
             OnInitKeypages();
@@ -43,6 +45,7 @@ namespace VortexTower
             OnInitRewards();
             OnInitStages();
             OnInitCredenza();
+            OnInitCustomSkins();
         }
 
         private static void OnInitRewards()
@@ -133,6 +136,17 @@ namespace VortexTower
                 { "SaeRage_Sa21341", new SkinOptions(VortexModParameters.PackageId) },
                 { "MiyuBlue_Sa21341", new SkinOptions(VortexModParameters.PackageId) },
                 { "BluePetal_Sa21341", new SkinOptions(VortexModParameters.PackageId, 501) }
+            });
+        }
+        private static void OnInitCustomSkins()
+        {
+            ModParameters.CustomBookSkinsOptions.Add(VortexModParameters.PackageId, new List<CustomBookSkinsOption>
+            {
+                new CustomBookSkinsOption("Sae_Sa21341", 10000001, characterNameId: 2),
+                new CustomBookSkinsOption("Zero_Sa21341", 10000004, characterNameId: 11),
+                new CustomBookSkinsOption("Miyu_Sa21341", 10000003, characterNameId: 4),
+                new CustomBookSkinsOption("KamiyoMask_Sa21341", 10000005, characterNameId: 10),
+                new CustomBookSkinsOption("GreenHunter_Sa21341", 10000006, characterNameId: 12)
             });
         }
 
