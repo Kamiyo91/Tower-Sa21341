@@ -6,6 +6,7 @@ namespace VortexTower.Miyu.Passives
     {
         public override void OnWaveStart()
         {
+            base.OnWaveStart();
             var passive = owner.passiveDetail.AddPassive(new PassiveAbility_251201());
             passive.Hide();
         }
