@@ -14,7 +14,7 @@ namespace VortexTower.Sae.Passives
 
         public override void OnRoundEnd()
         {
-            if (UnitUtil.SupportCharCheck(owner) != 1) return;
+            if (UnitUtil.SupportCharCheck(owner) > 1) return;
             if (owner.bufListDetail.HasBuf<BattleUnitBuf_AtkStance_Sa21341>() ||
                 owner.bufListDetail.HasBuf<BattleUnitBuf_GeneralAtkStance_Sa21341>())
                 owner.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Strength, 3);
