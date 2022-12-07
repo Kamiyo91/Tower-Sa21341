@@ -146,7 +146,7 @@ namespace VortexTower
                 new CustomBookSkinsOption("Sae_Sa21341", 10000001, characterNameId: 2, iconId: "AtkStance_Sa21341"),
                 new CustomBookSkinsOption("Zero_Sa21341", 10000004, characterNameId: 11,
                     iconId: "BlueFlameEmblem_Sa21341"),
-                new CustomBookSkinsOption("Miyu_Sa21341", 10000003, characterNameId: 4, iconId: "MagicStaff_Sa21341"),
+                new CustomBookSkinsOption("Miyu_Sa21341", 10000003, characterNameId: 4, iconId: "MagicStaffPiece_Sa21341"),
                 new CustomBookSkinsOption("KamiyoMask_Sa21341", 10000005, characterNameId: 10,
                     iconId: "Forgotten_Sa21341"),
                 new CustomBookSkinsOption("GreenHunter_Sa21341", 10000006, characterNameId: 12,
