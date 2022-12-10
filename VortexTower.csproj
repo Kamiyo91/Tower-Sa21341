@@ -73,8 +73,11 @@
     <Compile Include="BattleUnitBuf_Vip_Sa21341.cs" />
     <Compile Include="Forgotten\Buffs\BattleUnitBuf_CannotAct_Sa21341.cs" />
     <Compile Include="Forgotten\Buffs\BattleUnitBuf_StartPoint_Sa21341.cs" />
+    <Compile Include="Forgotten\Effects\DiceAttackEffect_KamiyoHitForgotten_Sa21341.cs" />
     <Compile Include="Forgotten\Effects\DiceAttackEffect_Hit_Sa21341.cs" />
     <Compile Include="Forgotten\Effects\DiceAttackEffect_MioHit_Sa21341.cs" />
+    <Compile Include="Forgotten\Effects\DiceAttackEffect_PierceKamiyoForgotten_Sa21341.cs" />
+    <Compile Include="Forgotten\Effects\DiceAttackEffect_KamiyoSlashForgotten_Sa21341.cs" />
     <Compile Include="Forgotten\Effects\DiceAttackEffect_SmallSlash_Sa21341.cs" />
     <Compile Include="Forgotten\Effects\DiceAttackEffect_SmallPierce2_Sa21341.cs" />
     <Compile Include="Forgotten\Effects\DiceAttackEffect_SmallPierce_Sa21341.cs" />

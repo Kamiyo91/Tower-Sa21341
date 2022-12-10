@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BigDLL4221.Models;
+using LOR_DiceSystem;
 using VortexTower.Forgotten.Buffs;
 using VortexTower.Forgotten.KamiyoShadow.Buffs;
 
@@ -14,6 +15,7 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
 
         public override void OnWaveStart()
         {
+            ChangeDiceEffects(owner);
             owner.ignoreBloodyEffect = true;
             _buff = new BattleUnitBuf_Remembrance_Sa21341();
             owner.bufListDetail.AddBuf(_buff);
@@ -121,6 +123,32 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
         public override void OnRoundEndTheLast_ignoreDead()
         {
             _util.ReturnFromEgoMap();
+        }
+
+        public static void ChangeDiceEffects(BattleUnitModel owner)
+        {
+            foreach (var card in owner.allyCardDetail.GetAllDeck())
+            {
+                card.CopySelf();
+                foreach (var dice in card.GetBehaviourList())
+                    ChangeCardDiceEffect(dice);
+            }
+        }
+
+        private static void ChangeCardDiceEffect(DiceBehaviour dice)
+        {
+            switch (dice.EffectRes)
+            {
+                case "KamiyoHitForgotten_Sa21341":
+                    dice.EffectRes = "KamiyoHitForgottenEnemy_Sa21341";
+                    break;
+                case "KamiyoSlashForgotten_Sa21341":
+                    dice.EffectRes = "KamiyoSlashForgottenEnemy_Sa21341";
+                    break;
+                case "PierceKamiyoForgotten_Sa21341":
+                    dice.EffectRes = "PierceKamiyoForgottenEnemy_Sa21341";
+                    break;
+            }
         }
     }
 }
