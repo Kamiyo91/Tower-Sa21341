@@ -67,6 +67,8 @@ namespace VortexTower
                         useHSVFilter: false)),
                 new CardOptions(27, onlyAllyTargetCard: true, oneSideOnlyCard: true),
                 new CardOptions(1, CardOption.Personal),
+                new CardOptions(10, CardOption.Personal),
+                new CardOptions(11, CardOption.Personal),
                 new CardOptions(2, CardOption.Personal),
                 new CardOptions(24, CardOption.Personal,
                     cardColorOptions: new CardColorOptions(Color.yellow, customIconColor: Color.yellow,
