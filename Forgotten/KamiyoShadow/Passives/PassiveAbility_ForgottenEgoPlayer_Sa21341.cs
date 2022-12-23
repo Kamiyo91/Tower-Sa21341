@@ -3,6 +3,7 @@ using System.Linq;
 using BigDLL4221.BaseClass;
 using BigDLL4221.Models;
 using BigDLL4221.Passives;
+using LOR_DiceSystem;
 using LOR_XML;
 using VortexTower.Forgotten.KamiyoShadow.Buffs;
 
@@ -40,6 +41,7 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
 
         public override void OnWaveStart()
         {
+            ChangeDiceEffects(owner);
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 70));
             _buff = new BattleUnitBuf_Remembrance_Sa21341();
             owner.bufListDetail.AddBuf(_buff);
@@ -68,6 +70,32 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 67));
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 68));
             owner.personalEgoDetail.AddCard(new LorId(VortexModParameters.PackageId, 71));
+        }
+
+        public static void ChangeDiceEffects(BattleUnitModel owner)
+        {
+            foreach (var card in owner.allyCardDetail.GetAllDeck())
+            {
+                card.CopySelf();
+                foreach (var dice in card.GetBehaviourList())
+                    ChangeCardDiceEffect(dice);
+            }
+        }
+
+        private static void ChangeCardDiceEffect(DiceBehaviour dice)
+        {
+            switch (dice.EffectRes)
+            {
+                case "KamiyoHit_Re21341":
+                    dice.EffectRes = "KamiyoHitForgotten_Sa21341";
+                    break;
+                case "KamiyoSlash_Re21341":
+                    dice.EffectRes = "KamiyoSlashForgotten_Sa21341";
+                    break;
+                case "PierceKamiyo_Re21341":
+                    dice.EffectRes = "PierceKamiyoForgotten_Sa21341";
+                    break;
+            }
         }
     }
 }

@@ -77,7 +77,7 @@ namespace VortexTower.Forgotten.KamiyoShadow.Buffs
 
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
-            if (stack > 24) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
+            if (stack > 19) behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
         }
     }
 }
