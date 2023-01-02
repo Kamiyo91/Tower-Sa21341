@@ -8,7 +8,7 @@ namespace VortexTower.Zero
 {
     public class MechUtil_Zero : MechUtilBase
     {
-        public MechUtil_Zero(MechUtilBaseModel model) : base(model)
+        public MechUtil_Zero(MechUtilBaseModel model) : base(model, VortexModParameters.PackageId)
         {
         }
 

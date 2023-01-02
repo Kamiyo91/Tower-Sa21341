@@ -16,27 +16,22 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
         public override void Init(BattleUnitModel self)
         {
             base.Init(self);
-            SetUtil(new MechUtilBase(new MechUtilBaseModel
-            {
-                Owner = owner,
-                Survive = true,
-                RecoverToHp = 64,
-                SurviveAbDialogList = new List<AbnormalityCardDialog>
-                {
-                    new AbnormalityCardDialog
+            SetUtil(new MechUtilBase(new MechUtilBaseModel(survive: true, recoverToHp: 64,
+                    surviveAbDialogList: new List<AbnormalityCardDialog>
                     {
-                        id = "ForgottenSurvive",
-                        dialog = ModParameters.LocalizedItems[VortexModParameters.PackageId]
-                            .EffectTexts["ForgottenSurvive_21341"].Desc
-                    }
-                },
-                EgoMaps = new Dictionary<LorId, MapModel>
-                    { { new LorId(VortexModParameters.PackageId, 1), VortexModParameters.ForgottenMap } },
-                PersonalCards = new Dictionary<LorId, PersonalCardOptions>
-                {
-                    { new LorId(VortexModParameters.PackageId, 52), new PersonalCardOptions() }
-                }
-            }));
+                        new AbnormalityCardDialog
+                        {
+                            id = "ForgottenSurvive",
+                            dialog = ModParameters.LocalizedItems[VortexModParameters.PackageId]
+                                .EffectTexts["ForgottenSurvive_21341"].Desc
+                        }
+                    }, personalCards: new Dictionary<LorId, PersonalCardOptions>
+                    {
+                        { new LorId(VortexModParameters.PackageId, 52), new PersonalCardOptions() }
+                    }, egoMaps: new Dictionary<LorId, MapModel>
+                        { { new LorId(VortexModParameters.PackageId, 1), VortexModParameters.ForgottenMap } }),
+                VortexModParameters.PackageId));
+            Util.Model.Owner = owner;
         }
 
         public override void OnWaveStart()

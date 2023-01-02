@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BigDLL4221.Models;
 using BigDLL4221.StageManagers;
+using CustomMapUtility;
 
 namespace VortexTower.Miyu
 {
@@ -8,7 +9,8 @@ namespace VortexTower.Miyu
     {
         public override void OnWaveStart()
         {
-            SetParameters(new MiyuUtil().MiyuNpcUtil, new List<MapModel> { VortexModParameters.MiyuMap });
+            SetParameters(CustomMapHandler.GetCMU(VortexModParameters.PackageId), new MiyuUtil().MiyuNpcUtil,
+                new List<MapModel> { VortexModParameters.MiyuMap });
             base.OnWaveStart();
         }
     }

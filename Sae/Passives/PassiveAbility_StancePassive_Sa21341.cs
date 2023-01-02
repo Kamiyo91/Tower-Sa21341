@@ -2,6 +2,7 @@
 using System.Linq;
 using BigDLL4221.Models;
 using BigDLL4221.Utils;
+using CustomMapUtility;
 using VortexTower.Sae.Buffs;
 using VortexTower.Sae.Cards;
 using VortexTower.Sae.Dice;
@@ -118,7 +119,7 @@ namespace VortexTower.Sae.Passives
             if (cardId != new LorId(VortexModParameters.PackageId, 9) ||
                 SingletonBehavior<BattleSceneRoot>.Instance.currentMapObject.isEgo) return;
             _mapUsed = true;
-            MapUtil.ChangeMap(new MapModel
+            MapUtil.ChangeMap(CustomMapHandler.GetCMU(VortexModParameters.PackageId), new MapModel
             {
                 Stage = "SaePhase2_Sa21341",
                 OriginalMapStageIds = new List<LorId>
@@ -135,7 +136,7 @@ namespace VortexTower.Sae.Passives
         {
             if (!_mapUsed) return;
             _mapUsed = false;
-            MapUtil.ReturnFromEgoMap("SaePhase2_Sa21341",
+            MapUtil.ReturnFromEgoMap(CustomMapHandler.GetCMU(VortexModParameters.PackageId), "SaePhase2_Sa21341",
                 new List<LorId>
                     { new LorId(VortexModParameters.PackageId, 1), new LorId(VortexModParameters.PackageId, 2) });
         }

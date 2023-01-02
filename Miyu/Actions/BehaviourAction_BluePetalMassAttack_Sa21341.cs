@@ -15,7 +15,8 @@ namespace VortexTower.Miyu.Actions
     {
         public override void Init(BattleUnitModel self, params object[] args)
         {
-            SetParameters(ActionDetail.Fire, "BluePetalWindAttack21341.ogg", "BluePetalMassAttack_Sa21341", zoom: false,
+            SetParameters(VortexModParameters.PackageId, ActionDetail.Fire, "BluePetalWindAttack21341.ogg",
+                "BluePetalMassAttack_Sa21341", zoom: false,
                 characterMove: false, followUnits: false);
             base.Init(self, args);
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BigDLL4221.Models;
 using BigDLL4221.StageManagers;
+using CustomMapUtility;
 
 namespace VortexTower.Sae
 {
@@ -8,7 +9,7 @@ namespace VortexTower.Sae
     {
         public override void OnWaveStart()
         {
-            SetParameters(new SaeUtil().SaeNpcUtil,
+            SetParameters(CustomMapHandler.GetCMU(VortexModParameters.PackageId), new SaeUtil().SaeNpcUtil,
                 new List<MapModel> { VortexModParameters.SaePhase1Map, VortexModParameters.SaePhase2Map });
             base.OnWaveStart();
         }

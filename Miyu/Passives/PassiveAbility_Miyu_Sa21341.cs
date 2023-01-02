@@ -2,6 +2,7 @@
 using System.Linq;
 using BigDLL4221.Models;
 using BigDLL4221.Utils;
+using CustomMapUtility;
 using LOR_DiceSystem;
 using VortexTower.Miyu.Buffs;
 
@@ -83,14 +84,14 @@ namespace VortexTower.Miyu.Passives
 
         private static void ChangeToMiyuEgoMap()
         {
-            MapUtil.ChangeMap(VortexModParameters.MiyuMap);
+            MapUtil.ChangeMap(CustomMapHandler.GetCMU(VortexModParameters.PackageId), VortexModParameters.MiyuMap);
         }
 
         public override void OnRoundEndTheLast_ignoreDead()
         {
             if (!_used) return;
             _used = false;
-            MapUtil.ReturnFromEgoMap("BlueGuardian_Sa21341",
+            MapUtil.ReturnFromEgoMap(CustomMapHandler.GetCMU(VortexModParameters.PackageId), "BlueGuardian_Sa21341",
                 new List<LorId>
                     { new LorId(VortexModParameters.PackageId, 3), new LorId(VortexModParameters.PackageId, 4) });
         }

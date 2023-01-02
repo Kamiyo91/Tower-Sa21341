@@ -6,7 +6,7 @@ namespace VortexTower.Zero.GreenHunter
 {
     public class NpcMechUtil_GreenGuardian : NpcMechUtilBase
     {
-        public NpcMechUtil_GreenGuardian(NpcMechUtilBaseModel model) : base(model)
+        public NpcMechUtil_GreenGuardian(NpcMechUtilBaseModel model) : base(model, VortexModParameters.PackageId)
         {
         }
 

@@ -6,7 +6,7 @@ namespace VortexTower.Miyu
 {
     public class NpcMiyuUtil : NpcMechUtilBase
     {
-        public NpcMiyuUtil(NpcMechUtilBaseModel model) : base(model)
+        public NpcMiyuUtil(NpcMechUtilBaseModel model) : base(model, VortexModParameters.PackageId)
         {
         }
 

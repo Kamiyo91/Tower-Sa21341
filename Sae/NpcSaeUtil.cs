@@ -8,7 +8,7 @@ namespace VortexTower.Sae
 {
     public class NpcSaeUtil : NpcMechUtilBase
     {
-        public NpcSaeUtil(NpcMechUtilBaseModel model) : base(model)
+        public NpcSaeUtil(NpcMechUtilBaseModel model) : base(model, VortexModParameters.PackageId)
         {
         }
 

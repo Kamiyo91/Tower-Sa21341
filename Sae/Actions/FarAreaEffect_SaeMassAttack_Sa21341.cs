@@ -2,6 +2,7 @@
 using Battle.DiceAttackEffect;
 using BigDLL4221.Models;
 using BigDLL4221.Utils;
+using CustomMapUtility;
 using LOR_DiceSystem;
 using Sound;
 using UnityEngine;
@@ -43,11 +44,14 @@ namespace VortexTower.Sae.Actions
 
         private readonly bool _RANDOM_MOTION = true;
 
-        private readonly AudioClip _soundS1 = UnitUtil.GetSound("Purple_Slash_Hori", true);
+        private readonly AudioClip _soundS1 = UnitUtil.GetSound(CustomMapHandler.GetCMU(VortexModParameters.PackageId),
+            "Purple_Slash_Hori", true);
 
-        private readonly AudioClip _soundS2 = UnitUtil.GetSound("Purple_Stab_Stab2", true);
+        private readonly AudioClip _soundS2 = UnitUtil.GetSound(CustomMapHandler.GetCMU(VortexModParameters.PackageId),
+            "Purple_Stab_Stab2", true);
 
-        private readonly AudioClip _soundS3 = UnitUtil.GetSound("Purple_Slash_VertDown", true);
+        private readonly AudioClip _soundS3 = UnitUtil.GetSound(CustomMapHandler.GetCMU(VortexModParameters.PackageId),
+            "Purple_Slash_VertDown", true);
 
         private List<GameObject> _atkParticleInstanceList;
 

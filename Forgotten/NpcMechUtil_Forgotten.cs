@@ -13,7 +13,7 @@ namespace VortexTower.Forgotten
         private BattleUnitModel _additionalUnit;
         private int _count;
 
-        public NpcMechUtil_Forgotten(NpcMechUtilBaseModel model) : base(model)
+        public NpcMechUtil_Forgotten(NpcMechUtilBaseModel model) : base(model, VortexModParameters.PackageId)
         {
         }
 

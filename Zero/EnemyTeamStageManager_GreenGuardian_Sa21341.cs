@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BigDLL4221.Models;
 using BigDLL4221.StageManagers;
+using CustomMapUtility;
 
 namespace VortexTower.Zero
 {
@@ -8,7 +9,8 @@ namespace VortexTower.Zero
     {
         public override void OnWaveStart()
         {
-            SetParameters(new GreenGuardianUtil().GreenGuardianNpcUtil,
+            SetParameters(CustomMapHandler.GetCMU(VortexModParameters.PackageId),
+                new GreenGuardianUtil().GreenGuardianNpcUtil,
                 new List<MapModel> { VortexModParameters.ZeroMap });
             base.OnWaveStart();
         }

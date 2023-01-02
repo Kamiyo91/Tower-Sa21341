@@ -240,6 +240,6 @@ namespace VortexTower
             additionalStartDraw: 2,
             recoverToHp: 41,
             permanentBuffList: new List<PermanentBuffOptions>
-                { new PermanentBuffOptions(new BattleUnitBuf_GreenLeaf_Sa21341()) }));
+                { new PermanentBuffOptions(new BattleUnitBuf_GreenLeaf_Sa21341()) }), VortexModParameters.PackageId);
     }
 }
