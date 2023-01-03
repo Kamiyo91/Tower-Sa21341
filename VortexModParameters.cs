@@ -68,7 +68,23 @@ namespace VortexTower
             bgy: 0.2f, fy: 0.25f,
             originalMapStageIds: new List<LorId> { new LorId(PackageId, 5), new LorId(PackageId, 6) });
 
-        public static MapModel ForgottenMap = new MapModel(typeof(Forgotten5_Sa21341MapManager), "Forgotten5_Sa21341",
+        public static MapModel ForgottenMap1 = new MapModel(typeof(Forgotten1_Sa21341MapManager), "Forgotten1_Sa21341",
+            bgy: 0.55f,
+            originalMapStageIds: new List<LorId> { new LorId(PackageId, 7), new LorId(PackageId, 8) });
+
+        public static MapModel ForgottenMap2 = new MapModel(typeof(Forgotten2_Sa21341MapManager), "Forgotten2_Sa21341",
+            bgy: 0.2f,
+            originalMapStageIds: new List<LorId> { new LorId(PackageId, 7), new LorId(PackageId, 8) });
+
+        public static MapModel ForgottenMap3 = new MapModel(typeof(Forgotten3_Sa21341MapManager), "Forgotten3_Sa21341",
+            bgy: 0.2f,
+            originalMapStageIds: new List<LorId> { new LorId(PackageId, 7), new LorId(PackageId, 8) });
+
+        public static MapModel ForgottenMap4 = new MapModel(typeof(Forgotten4_Sa21341MapManager), "Forgotten4_Sa21341",
+            bgy: 0.3f, fy: 0.475f,
+            originalMapStageIds: new List<LorId> { new LorId(PackageId, 7), new LorId(PackageId, 8) });
+
+        public static MapModel ForgottenMap5 = new MapModel(typeof(Forgotten5_Sa21341MapManager), "Forgotten5_Sa21341",
             bgy: 0.475f, fy: 0.225f,
             originalMapStageIds: new List<LorId> { new LorId(PackageId, 7), new LorId(PackageId, 8) });
 

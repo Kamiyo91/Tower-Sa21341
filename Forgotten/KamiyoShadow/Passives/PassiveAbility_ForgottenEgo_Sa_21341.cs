@@ -30,7 +30,7 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
                     }
                 }, egoMaps: new Dictionary<LorId, MapModel>
                 {
-                    { new LorId(VortexModParameters.PackageId, 69), VortexModParameters.ForgottenMap }
+                    { new LorId(VortexModParameters.PackageId, 69), VortexModParameters.ForgottenMap5 }
                 }));
             _util.Model.Owner = owner;
             _util.Model.ThisPassiveId = id;

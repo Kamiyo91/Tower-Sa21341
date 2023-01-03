@@ -29,7 +29,7 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
                     {
                         { new LorId(VortexModParameters.PackageId, 52), new PersonalCardOptions() }
                     }, egoMaps: new Dictionary<LorId, MapModel>
-                        { { new LorId(VortexModParameters.PackageId, 1), VortexModParameters.ForgottenMap } }),
+                        { { new LorId(VortexModParameters.PackageId, 1), VortexModParameters.ForgottenMap5 } }),
                 VortexModParameters.PackageId));
             Util.Model.Owner = owner;
         }
