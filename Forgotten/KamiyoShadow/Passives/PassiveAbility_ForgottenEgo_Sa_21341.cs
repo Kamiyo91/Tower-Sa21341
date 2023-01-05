@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BigDLL4221.Models;
+using BigDLL4221.StageManagers;
 using LOR_DiceSystem;
 using VortexTower.Forgotten.Buffs;
 using VortexTower.Forgotten.KamiyoShadow.Buffs;
@@ -42,6 +43,10 @@ namespace VortexTower.Forgotten.KamiyoShadow.Passives
         public override void OnRoundStart()
         {
             if (GetPhase() < 4) owner.bufListDetail.AddBuf(new BattleUnitBuf_CannotAct_Sa21341());
+            if (!(Singleton<StageController>.Instance.EnemyStageManager is
+                    EnemyTeamStageManager_RushBattleWithCMUOnly_DLL4221 manager)) return;
+            manager.SetMapPhase(GetPhase());
+            manager.OnRoundStart();
         }
 
         public override int SpeedDiceNumAdder()
