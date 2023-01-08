@@ -78,7 +78,7 @@ namespace VortexTower
                 new CardOptions(9, CardOption.EgoPersonal),
                 new CardOptions(26, CardOption.EgoPersonal),
                 new CardOptions(14, CardOption.Personal,
-                    cardColorOptions: new CardColorOptions(Color.red, customIconColor: Color.red, useHSVFilter: false)),
+                    cardColorOptions: new CardColorOptions(new Color(0.6f,0,0,1), customIconColor: new Color(0.6f,0,0,1), useHSVFilter: false)),
                 new CardOptions(6, CardOption.OnlyPage, new List<string> { "SaePage_Sa21341" },
                     new List<LorId> { new LorId(VortexModParameters.PackageId, 10000001) }),
                 new CardOptions(53, CardOption.OnlyPage, new List<string> { "ZeroPage_Sa21341" },
@@ -159,17 +159,17 @@ namespace VortexTower
                 new KeypageOptions(10000001, bookCustomOptions: new BookCustomOptions(nameTextId: 2), isMultiDeck: true,
                     multiDeckOptions: new MultiDeckOptions(new List<string>
                         { "AttackStance_Sa21341", "DefenseStance_Sa21341" }),
-                    keypageColorOptions: new KeypageColorOptions(Color.red, Color.red)),
+                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new KeypageOptions(10000901, bookCustomOptions: new BookCustomOptions(nameTextId: 2), isMultiDeck: true,
                     multiDeckOptions: new MultiDeckOptions(new List<string>
                         { "AttackStance_Sa21341", "DefenseStance_Sa21341" }),
-                    keypageColorOptions: new KeypageColorOptions(Color.red, Color.red)),
+                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new KeypageOptions(2,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 2, originalSkin: "SaeShadow_Sa21341",
                         egoSkin: new List<string> { "SaeRage_Sa21341" }), isMultiDeck: true,
                     multiDeckOptions: new MultiDeckOptions(new List<string>
                         { "AttackStance_Sa21341", "DefenseStance_Sa21341" }),
-                    keypageColorOptions: new KeypageColorOptions(Color.red, Color.red)),
+                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new KeypageOptions(4,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 4, originalSkin: "MiyuBlue_Sa21341",
                         egoSkin: new List<string> { "BluePetal_Sa21341" }),
@@ -212,7 +212,7 @@ namespace VortexTower
                     keypageColorOptions: new KeypageColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new KeypageOptions(10000904,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 2),
-                    keypageColorOptions: new KeypageColorOptions(Color.red, Color.red)),
+                    keypageColorOptions: new KeypageColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new KeypageOptions(10000905,
                     bookCustomOptions: new BookCustomOptions(nameTextId: 10),
                     keypageColorOptions: new KeypageColorOptions(Color.gray, Color.gray))
@@ -226,7 +226,7 @@ namespace VortexTower
                     customIconSpriteId: VortexModParameters.PackageId, credenzaBooksId: new List<int>
                     {
                         10000001, 10000003, 10000004, 10000005
-                    }, bookDataColor: new CredenzaColorOptions(Color.red, Color.red)));
+                    }, bookDataColor: new CredenzaColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))));
         }
 
         private static void OnInitSprites()
@@ -258,8 +258,8 @@ namespace VortexTower
                             }
                         },
                         battleType: PreBattleType.CustomUnits),
-                    bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
-                new StageOptions(2, stageColorOptions: new StageColorOptions(Color.red, Color.red)),
+                    bannedEmotionLevel: true, stageColorOptions: new StageColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
+                new StageOptions(2, stageColorOptions: new StageColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new StageOptions(3,
                     preBattleOptions: new PreBattleOptions(new Dictionary<SephirahType, List<UnitModel>>
                         {
@@ -320,7 +320,7 @@ namespace VortexTower
         {
             ModParameters.PassiveOptions.Add(VortexModParameters.PackageId, new List<PassiveOptions>
             {
-                new PassiveOptions(1, false, passiveColorOptions: new PassiveColorOptions(Color.red, Color.red)),
+                new PassiveOptions(1, false, passiveColorOptions: new PassiveColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new PassiveOptions(9, false, passiveColorOptions: new PassiveColorOptions(Color.yellow, Color.yellow)),
                 new PassiveOptions(33, false, passiveColorOptions: new PassiveColorOptions(Color.gray, Color.gray)),
                 new PassiveOptions(23, false,
@@ -364,7 +364,7 @@ namespace VortexTower
         {
             ModParameters.DropBookOptions.Add(VortexModParameters.PackageId, new List<DropBookOptions>
             {
-                new DropBookOptions(1, new DropBookColorOptions(Color.red, Color.red)),
+                new DropBookOptions(1, new DropBookColorOptions(new Color(0.6f,0,0,1), new Color(0.6f,0,0,1))),
                 new DropBookOptions(2, new DropBookColorOptions(Color.yellow, Color.yellow)),
                 new DropBookOptions(3, new DropBookColorOptions(VortexModParameters.Blue, VortexModParameters.Blue)),
                 new DropBookOptions(4, new DropBookColorOptions(Color.gray, Color.gray)),
